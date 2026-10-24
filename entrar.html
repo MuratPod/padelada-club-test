@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es" class="no-js" data-theme="dark">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Entra en el club · Club Padelada</title>
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0B0C0E">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/club.css">
+<script>var q=new URLSearchParams(location.search).get('state');document.documentElement.setAttribute('data-state',q||'email');</script>
+</head>
+<body>
+<div class="page-glow" aria-hidden="true"><i class="g1"></i><i class="g2"></i><i class="g3"></i></div>
+<div class="mockbar" role="note"><b>Maqueta</b> Los datos con la etiqueta «Ejemplo» no son reales</div><nav class="mockstates" aria-label="Estados de la maqueta"><span>Estado:</span><a href="?state=email" data-state-link="email">Paso 1: correo</a><a href="?state=code" data-state-link="code">Paso 2: código</a><a href="?state=error" data-state-link="error">Código incorrecto</a><a href="?state=expired" data-state-link="expired">Código caducado</a><a href="?state=resend" data-state-link="resend">Reenviar disponible</a></nav>
+<header class="mast mast--simple">
+ <div class="wrap">
+  <a class="brand" href="index.html" aria-label="Club Padelada"><span class="brand__club">Club</span><img src="assets/padelada-logo-on-dark.svg" alt="Padelada" width="108" height="21"></a>
+  <div class="tools">
+   <details class="lang"><summary aria-label="Idioma"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5a14.5 14.5 0 0 1 0 19 14.5 14.5 0 0 1 0-19"/></svg>ES</summary><div class="lang__list"><a href="ca/entrar.html" lang="ca" hreflang="ca">Català<span>CA</span></a><a href="entrar.html" lang="es" hreflang="es" aria-current="page">Español<span>ES</span></a><a href="en/entrar.html" lang="en" hreflang="en">English<span>EN</span></a><a href="ru/entrar.html" lang="ru" hreflang="ru">Русский<span>RU</span></a><a href="uk/entrar.html" lang="uk" hreflang="uk">Українська<span>UK</span></a></div></details>
+   <a class="btn btn--sm" href="index.html#descargar" data-dl data-ios="https://apps.apple.com/app/id6819019168" data-android="https://play.google.com/store/apps/details?id=com.padelada.app" aria-haspopup="dialog" aria-controls="dlpop">Descargar</a>
+  </div>
+ </div>
+ <div class="dlpop" id="dlpop" role="dialog" aria-modal="false" aria-labelledby="dlpop-t" hidden>
+  <button class="dlpop__x" type="button" data-dl-close aria-label="Cerrar"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <p class="dlpop__t" id="dlpop-t">Descargar Padelada</p>
+  <img class="dlpop__qr" src="assets/qr-app.svg" alt="QR" width="168" height="168">
+  <p class="dlpop__p">Apunta la cámara del móvil al código: se abrirá la tienda adecuada.</p>
+  <div class="store-row"><a class="store-badge" href="https://apps.apple.com/app/id6819019168" rel="noopener"><img src="assets/badges/apple-es-white.svg" alt="App Store" width="138" height="46"></a><a class="store-badge" href="https://play.google.com/store/apps/details?id=com.padelada.app" rel="noopener"><img class="play" src="assets/badges/google-es.png" alt="Google Play" width="160" height="62"></a></div>
+ </div>
+</header>
+<main>
+
+<section class="login"><div class="wrap">
+ <div class="night r">
+  <div class="night__brand"><span class="brand__club">Club</span><img src="assets/padelada-logo-on-dark.svg" alt="Padelada" width="108" height="21"></div>
+  <form class="night__step" data-st="email" onsubmit="location.search='?state=code';return false">
+   <div class="night__ico"><svg width="22" height="22" class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="11" rx="3.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/><path d="M12 15v2.4"/></svg></div>
+   <h1 class="night__h">Entra en el club</h1>
+   <p class="night__sub">Sin contraseña: te enviamos un código de 6 cifras.</p>
+   <label class="night__field"><span>Tu correo de Padelada</span><input type="email" name="email" autocomplete="email" inputmode="email" required></label>
+   <button class="btn btn--lg btn--block" type="submit">Recibir el código</button>
+  </form>
+  <form onsubmit="return false">
+  
+   <div class="night__step" data-st="code">
+    <div class="night__ico"><svg width="22" height="22" class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="3.5"/><path d="m3.5 7.5 8.5 6 8.5-6"/></svg></div>
+    <h1 class="night__h">Escribe el código del correo</h1>
+    <p class="night__sub">Te hemos enviado el código a <b>laia.ferrer@ejemplo.com</b>. <span class="demo">Ejemplo</span></p>
+    <p class="night__note">Si hay una cuenta con este correo, el código ya está en tu bandeja de entrada.</p>
+    <div class="otp " role="group" aria-label="Escribe el código del correo"><input inputmode="numeric" maxlength="1" autocomplete="one-time-code" aria-label="1/6" value="4"><input inputmode="numeric" maxlength="1" autocomplete="off" aria-label="2/6" value="8"><input inputmode="numeric" maxlength="1" autocomplete="off" aria-label="3/6" value="1"><input inputmode="numeric" maxlength="1" autocomplete="off" aria-label="4/6" value="" class="gap"><input inputmode="numeric" maxlength="1" autocomplete="off" aria-label="5/6" value=""><input inputmode="numeric" maxlength="1" autocomplete="off" aria-label="6/6" value=""></div>
+    
+    <button class="btn btn--lg btn--block" type="submit">Entrar</button>
+    <div class="night__row">
+     <button type="button" class="night__link" disabled data-countdown="45" data-tpl="Otra vez en {s} s">Otra vez en <span data-s>45</span> s</button>
+     <a class="night__link is-on" href="?state=email">Otro correo</a>
+    </div>
+   </div>
+  
+   <div class="night__step" data-st="error">
+    <div class="night__ico"><svg width="22" height="22" class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="3.5"/><path d="m3.5 7.5 8.5 6 8.5-6"/></svg></div>
+    <h1 class="night__h">Escribe el código del correo</h1>
+    <p class="night__sub">Te hemos enviado el código a <b>laia.ferrer@ejemplo.com</b>. <span class="demo">Ejemplo</span></p>
+    <p class="night__note">Si hay una cuenta con este correo, el código ya está en tu bandeja de entrada.</p>
+    <div class="otp is-bad" role="group" aria-label="Escribe el código del correo"><input inputmode="numeric" maxlength="1" autocomplete="one-time-code" aria-label="1/6" value="4"><input inputmode="numeric" maxlength="1" autocomplete="off" aria-label="2/6" value="8"><input inputmode="numeric" maxlength="1" autocomplete="off" aria-label="3/6" value="1"><input inputmode="numeric" maxlength="1" autocomplete="off" aria-label="4/6" value="9" class="gap"><input inputmode="numeric" maxlength="1" autocomplete="off" aria-label="5/6" value="2"><input inputmode="numeric" maxlength="1" autocomplete="off" aria-label="6/6" value="0"></div>
+    <p class="night__msg is-bad" role="alert"><svg width="16" height="16" class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 4.1 2.6 17.5a2 2 0 0 0 1.7 3h15.4a2 2 0 0 0 1.7-3L13.7 4.1a2 2 0 0 0-3.4 0z"/><path d="M12 9.5v4M12 17h.01"/></svg>El código no es correcto. Revisa las cifras y vuelve a intentarlo.</p>
+    <button class="btn btn--lg btn--block" type="submit">Entrar</button>
+    <div class="night__row">
+     <button type="button" class="night__link" disabled data-countdown="45" data-tpl="Otra vez en {s} s">Otra vez en <span data-s>45</span> s</button>
+     <a class="night__link is-on" href="?state=email">Otro correo</a>
+    </div>
+   </div>
+  
+   <div class="night__step" data-st="expired">
+    <div class="night__ico"><svg width="22" height="22" class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="3.5"/><path d="m3.5 7.5 8.5 6 8.5-6"/></svg></div>
+    <h1 class="night__h">Escribe el código del correo</h1>
+    <p class="night__sub">Te hemos enviado el código a <b>laia.ferrer@ejemplo.com</b>. <span class="demo">Ejemplo</span></p>
+    <p class="night__note">Si hay una cuenta con este correo, el código ya está en tu bandeja de entrada.</p>
+    <div class="otp is-off" role="group" aria-label="Escribe el código del correo"><input inputmode="numeric" maxlength="1" autocomplete="one-time-code" aria-label="1/6" value=""><input inputmode="numeric" maxlength="1" autocomplete="off" aria-label="2/6" value=""><input inputmode="numeric" maxlength="1" autocomplete="off" aria-label="3/6" value=""><input inputmode="numeric" maxlength="1" autocomplete="off" aria-label="4/6" value="" class="gap"><input inputmode="numeric" maxlength="1" autocomplete="off" aria-label="5/6" value=""><input inputmode="numeric" maxlength="1" autocomplete="off" aria-label="6/6" value=""></div>
+    <p class="night__msg" role="alert"><svg width="16" height="16" class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 4.1 2.6 17.5a2 2 0 0 0 1.7 3h15.4a2 2 0 0 0 1.7-3L13.7 4.1a2 2 0 0 0-3.4 0z"/><path d="M12 9.5v4M12 17h.01"/></svg>El código ha caducado. Pide uno nuevo.</p>
+    <button class="btn btn--lg btn--block" type="submit" disabled>Entrar</button>
+    <div class="night__row">
+     <button type="button" class="night__link is-on">Enviar otra vez</button>
+     <a class="night__link is-on" href="?state=email">Otro correo</a>
+    </div>
+   </div>
+  
+   <div class="night__step" data-st="resend">
+    <div class="night__ico"><svg width="22" height="22" class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="3.5"/><path d="m3.5 7.5 8.5 6 8.5-6"/></svg></div>
+    <h1 class="night__h">Escribe el código del correo</h1>
+    <p class="night__sub">Te hemos enviado el código a <b>laia.ferrer@ejemplo.com</b>. <span class="demo">Ejemplo</span></p>
+    <p class="night__note">Si hay una cuenta con este correo, el código ya está en tu bandeja de entrada.</p>
+    <div class="otp " role="group" aria-label="Escribe el código del correo"><input inputmode="numeric" maxlength="1" autocomplete="one-time-code" aria-label="1/6" value=""><input inputmode="numeric" maxlength="1" autocomplete="off" aria-label="2/6" value=""><input inputmode="numeric" maxlength="1" autocomplete="off" aria-label="3/6" value=""><input inputmode="numeric" maxlength="1" autocomplete="off" aria-label="4/6" value="" class="gap"><input inputmode="numeric" maxlength="1" autocomplete="off" aria-label="5/6" value=""><input inputmode="numeric" maxlength="1" autocomplete="off" aria-label="6/6" value=""></div>
+    
+    <button class="btn btn--lg btn--block" type="submit">Entrar</button>
+    <div class="night__row">
+     <button type="button" class="night__link is-on">Enviar otra vez</button>
+     <a class="night__link is-on" href="?state=email">Otro correo</a>
+    </div>
+   </div>
+  </form>
+ </div>
+ <p class="login__join r d1"><a class="link" href="https://padelada.com/es/club/">¿Aún no eres miembro? Cómo entrar<svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+</div></section>
+</main>
+<footer class="foot">
+ <div class="wrap">
+  <div style="display:grid;gap:14px">
+   <p class="foot__line">Club Padelada: la comunidad de jugadores de Padelada.</p>
+   <ul class="foot__links"><li><a href="https://padelada.com/">La app</a></li><li><a href="https://padelada.com/terms/">Condiciones</a></li><li><a href="https://padelada.com/privacy/">Política de privacidad</a></li><li><a href="https://padelada.com/illegal/">Contenido ilegal</a></li><li><a href="mailto:hola@padelada.com">Contacto</a></li></ul>
+   <p class="foot__op">Operador: PADELADA WORLD, S.L. · © 2026 Padelada</p>
+  </div>
+  <div class="foot__right"><div class="seg" role="group" aria-label="Idioma"><a href="ca/entrar.html" lang="ca">CA</a><a href="entrar.html" lang="es" aria-current="page">ES</a><a href="en/entrar.html" lang="en">EN</a><a href="ru/entrar.html" lang="ru">RU</a><a href="uk/entrar.html" lang="uk">UK</a></div></div>
+ </div>
+</footer>
+<script src="js/club.js"></script>
+</body>
+</html>
