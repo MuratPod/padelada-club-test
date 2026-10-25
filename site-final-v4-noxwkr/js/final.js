@@ -55,7 +55,8 @@
   });
   const byId = Object.fromEntries(scenes.map(s => [s.id, s]));
   const hero = $('.hero-sec'), heroIn = $('#heroIn'), peek = $('.peek');
-  const RATING = 3.1;
+  const RATING = 3.5;   // v4: значение на экране «Мой уровень» (3,5); число и маркер рядом со шкалой должны совпадать с ним
+  let rVal = RATING;
   let heroH = 0;
 
   const fmt = v => v.toFixed(1).replace('.', lang === 'en' ? '.' : ',');
@@ -272,7 +273,7 @@
       const lab = (b, i) => b.setAttribute('aria-label', (i + 1) + '/' + sc.n + ' — ' + ($('h2', sc.steps[i]) || {}).textContent);
       sc.sdots.forEach(lab);
     });
-    $$('.sw-rnum').forEach(n => { n.textContent = fmt(RATING); });
+    $$('.sw-rnum').forEach(n => { n.textContent = fmt(rVal); });
     activeId = null;
     document.title = 'Padelada — ' + (d.title || '');
     if (persist) {
@@ -282,11 +283,38 @@
     if (!quiet) requestAnimationFrame(() => { measure(); update(); });
   }
 
+  /* ---------- v4: рейтинг — маркер «едет» по шкале, число плавно считается до реального значения экрана (3,5) ----------
+     Один раз, когда сцена входит в кадр. Пока сцены нет в кадре, шкала стоит на 2,8 (начало графика «Мой уровень»), никогда не 0,0.
+     Без IntersectionObserver / при prefers-reduced-motion — сразу 3,5. Прокрутку и свайп не трогает. */
+  const RSTART = 2.8;
+  function setMeter(v) {
+    rVal = v;
+    $$('.sw-rnum').forEach(n => { n.textContent = fmt(v); });
+    $$('.sw-meter .mk').forEach(m => { m.style.left = (v / 7 * 100).toFixed(2) + '%'; });
+  }
+  function armMeter() {
+    const sc = byId.rating;
+    if (!sc || rmQ.matches || !('IntersectionObserver' in window)) return;
+    setMeter(RSTART);
+    let t0 = 0;
+    const step = now => {
+      if (!t0) t0 = now;
+      const k = Math.min(1, (now - t0) / 1400), e = 1 - Math.pow(1 - k, 3);
+      setMeter(RSTART + (RATING - RSTART) * e);
+      if (k < 1) requestAnimationFrame(step); else setMeter(RATING);
+    };
+    const io = new IntersectionObserver(es => {
+      if (es.some(e => e.isIntersecting)) { io.disconnect(); requestAnimationFrame(step); }
+    }, { threshold: 0.2 });
+    io.observe(sc.el);
+  }
+
   /* ---------- старт ---------- */
   let initial = 'ru';
   try { const q = new URLSearchParams(location.search); initial = q.get('lang') || localStorage.getItem('pd-lang') || 'ru'; } catch (e) {}
   buildSwipe();
   setLang(initial, false, true);
+  armMeter();
   const boot = () => {
     measure(); update();
     heroIn.classList.add('in'); peek.classList.add('in');
