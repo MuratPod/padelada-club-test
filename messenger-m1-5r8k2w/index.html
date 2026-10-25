@@ -937,8 +937,8 @@ function howSheet(){
 /* ---------- рендер ---------- */
 function status(){return `<div class="status"><span>9:41</span><span class="sb"><svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2.5" width="3" height="9.5" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="17" height="12" viewBox="0 0 17 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1.5 4.2a10 10 0 0 1 14 0"/><path d="M4 7a6.5 6.5 0 0 1 9 0"/><circle cx="8.5" cy="10" r="1" fill="currentColor"/></svg><svg width="27" height="13" viewBox="0 0 27 13" fill="none"><rect x="0.5" y="0.5" width="22" height="12" rx="3.5" stroke="currentColor"/><rect x="2" y="2" width="19" height="9" rx="2" fill="currentColor"/><rect x="24" y="4" width="2" height="5" rx="1" fill="currentColor"/></svg></span></div><div class="mstrip"><button class="demo-btn" data-act="panel">${ic('settings-2','i14')}Демо</button></div>`}
 const FBEST=4;/* лучшее исполнение F — по умолчанию (?menu=F); F1…F5 — варианты исполнения */
-const RBEST=2;/* лучший круг — по умолчанию (?menu=R = R2); R1/R2/R3 — круг 56/60/64 px, приподнят над панелью (правки 11) */
-const MENUV=(new URLSearchParams(location.search).get('menu')||'R').toUpperCase();
+const RBEST=2;/* круг R1–R3 — отклонён Murat 25.10 22:18; по умолчанию D1 (пилюля) */
+const MENUV=(new URLSearchParams(location.search).get('menu')||'D1').toUpperCase();
 const RN=(m=>m?(m[1]?+m[1]:RBEST):0)(/^R([1-3])?$/.exec(MENUV));
 const FN=(m=>m?(m[1]?+m[1]:FBEST):0)(/^F([1-5])?$/.exec(MENUV));
 const DN=(m=>m?+m[1]:0)(/^D([1-4])$/.exec(MENUV));/* D1…D4 — исполнение овальной кнопки (правки 10); ?menu=D — прежний архивный D */
