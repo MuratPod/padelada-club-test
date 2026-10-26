@@ -31,19 +31,19 @@ body.bare{background:var(--bg)}
 .mrow .avatar{flex:none}
 .msgs{padding-bottom:12px}
 /* галерея */
-.gal{font-family:var(--ft);padding:24px 16px 64px;max-width:1500px;margin:0 auto;color:#24123A}
+.gal,.gal p{font-family:'Golos Text',system-ui,sans-serif}.gal{padding:24px 16px 64px;max-width:1500px;margin:0 auto;color:#24123A}
 body.dark-g{background:#05080F;color:#F5F5F7}
 .gal h1{font:800 26px/32px 'Montserrat Alternates',sans-serif;margin-bottom:6px}
 .gal h2{font:800 18px/24px 'Montserrat Alternates',sans-serif;margin:32px 0 12px}
-.gal p.s{font:400 15px/22px var(--ft);max-width:720px;margin-bottom:8px}
+.gal p.s{font:400 15px/22px 'Golos Text',system-ui,sans-serif;max-width:720px;margin-bottom:8px}
 .grid{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start}
 .card{display:block;text-decoration:none;color:inherit;width:240px}
 .card.w{width:300px}
 .card img{display:block;width:100%;height:auto;border-radius:18px;border:1px solid rgba(128,128,128,.35)}
-.card b{display:block;font:700 13px/18px var(--ft);margin-top:6px}
-.card span{display:block;font:400 12px/16px var(--ft);opacity:.75}
-.tg{display:inline-flex;gap:8px;margin:12px 0}
-.tg a{min-height:48px;padding:0 18px;border-radius:999px;background:#24123A;color:#FFF1EA;font:700 15px/48px var(--ft);text-decoration:none}
+.card b{display:block;font:700 13px/18px 'Golos Text',system-ui,sans-serif;margin-top:6px}
+.card span{display:block;font:400 12px/16px 'Golos Text',system-ui,sans-serif;opacity:.75}
+.tg{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.tg a{min-height:48px;padding:0 18px;border-radius:999px;background:#24123A;color:#FFF1EA;font:700 15px/48px 'Golos Text',system-ui,sans-serif;text-decoration:none;white-space:nowrap}
 body{overflow:auto;background:#FFF1EA;height:auto}</style></head><body><div class="gal">
 <h1>Поле ввода мессенджера: кадры состояний</h1>
 <p class="s">Макет для проверки PR. Нажмите на кадр: откроется живой экран, в нём можно печатать (поле растёт до 5 строк, кнопка «Отправить» оживает при тексте) и отправлять. Размеры и значения в <a href="spec.html">SPEC.md</a>, проверки в <a href="check.html">CHECK.md</a>.</p>
