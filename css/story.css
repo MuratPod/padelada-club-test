@@ -512,7 +512,8 @@ html{scroll-padding-top:84px}
 .st-capline{margin:12px 0 0;font-size:15px;line-height:1.45;color:var(--founder-text);max-width:34em}
 /* 24.10 17:05 (Мурат): первый экран — общий план. Заголовок и его цвета не меняются. На телефоне фигура над заголовком (высоту картинки до подписи CLUB PADELADA ставит js/story.js), на компьютере справа от заголовка. */
 .st-hero--wide{background:#000}
-.st-hero__wm{position:absolute;inset:0;z-index:-3;background:#000;overflow:hidden}
+.st-hero__wm{position:absolute;inset:0;z-index:-3;background:radial-gradient(60% 55% at 78% 38%,rgba(255,196,84,.30) 0,rgba(255,196,84,.10) 45%,rgba(255,196,84,0) 75%),radial-gradient(90% 60% at 50% 105%,rgba(255,232,170,.14) 0,rgba(255,232,170,0) 70%),#07070a;overflow:hidden}
+@media (max-width:899px){.st-hero__wm{background:radial-gradient(85% 38% at 50% 22%,rgba(255,196,84,.30) 0,rgba(255,196,84,.10) 50%,rgba(255,196,84,0) 80%),radial-gradient(90% 50% at 50% 105%,rgba(255,232,170,.14) 0,rgba(255,232,170,0) 70%),#07070a}}
 .st-hero__wm img,.st-hero__wm video{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover}
 .st-hero__wv{opacity:0;transition:opacity .8s var(--ease)}.st-hero__wv.is-on{opacity:1}
 .st-hero__ws{position:absolute;inset:0;z-index:-2;pointer-events:none}
