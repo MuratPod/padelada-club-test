@@ -1,0 +1,138 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SPEC</title><style>body{font:16px/24px system-ui,sans-serif;max-width:860px;margin:0 auto;padding:16px;color:#24123A;background:#FFF1EA}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #C9B3AA;padding:6px 10px;text-align:left;vertical-align:top;font-size:14px;line-height:20px}code{background:#FBE3D8;padding:1px 4px;border-radius:4px}</style></head><body><h1>Поле ввода мессенджера Padelada: спека и кадры (v1)</h1>
+<p>Спека одобрена Messenger Manager. Все значения в pt (в макете 1 pt = 1 css px). Токены Festa те же, что в messenger-v1 (<code>src/style.css</code>, строки 2–29).</p>
+<h2>Строка ввода</h2>
+<p><code>[поле flex 1] [микрофон 48×48] [Отправить 48×48]</code>, выравнивание по нижнему краю, <code>alignItems: 'flex-end'</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Отступ до края экрана (слева, справа)</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Расстояние между элементами (поле, микрофон, Отправить)</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Нижний отступ строки</td>
+<td>8 + safe area (на iPhone 390: 8 + 34 = 42 от низа экрана)</td>
+</tr>
+<tr>
+<td>Кнопки</td>
+<td>круглые 48×48, radius 999, иконки Lucide stroke 2, 22 pt (<code>mic</code>, <code>arrow-up</code>)</td>
+</tr>
+<tr>
+<td>Таб-бара в чате нет, строка стоит над индикатором «Домой»</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Кнопки</h2>
+<table>
+<thead>
+<tr>
+<th>Кнопка</th>
+<th>Состояние</th>
+<th>Фон</th>
+<th>Иконка</th>
+<th>Прочее</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Микрофон</td>
+<td>всегда</td>
+<td><code>inverse</code></td>
+<td><code>onInverse</code></td>
+<td>как в messenger-v1; во время записи заменяется состоянием записи (ниже)</td>
+</tr>
+<tr>
+<td>Отправить</td>
+<td>пусто</td>
+<td><code>surfaceSunk</code></td>
+<td><code>inkMuted</code></td>
+<td><code>disabled</code> + <code>accessibilityState={{disabled:true}}</code>, без анимации, без тени</td>
+</tr>
+<tr>
+<td>Отправить</td>
+<td>есть текст</td>
+<td><code>brandCoral</code></td>
+<td><code>onBrand</code> #24123A</td>
+<td><code>shadowCoral</code> только в светлой теме (в тёмной нет); цвет меняется за 150 мс; нажатие <code>scale .96</code></td>
+</tr>
+</tbody>
+</table>
+<p>Подпись для скринридера: «Отправить» / Enviar / Envia / Send / Надіслати. Микрофон: «Голосовое сообщение» / Mensaje de voz / Missatge de veu / Voice message / Голосове повідомлення.</p>
+<h2>Поле</h2>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>radius</td>
+<td>24</td>
+</tr>
+<tr>
+<td>фон / обводка</td>
+<td><code>surface</code> / 1 px <code>line</code></td>
+</tr>
+<tr>
+<td>внутренний горизонтальный отступ</td>
+<td>16</td>
+</tr>
+<tr>
+<td>шрифт</td>
+<td>Golos Text 400, 16/22 (текст и плейсхолдер)</td>
+</tr>
+<tr>
+<td>высота в одну строку</td>
+<td>48</td>
+</tr>
+<tr>
+<td>вертикальные отступы</td>
+<td>13 с учётом обводки (см. примечание про RN)</td>
+</tr>
+<tr>
+<td>плейсхолдер</td>
+<td>«Сообщение…» / Mensaje… / Missatge… / Message… / Повідомлення…, цвет <code>inkMuted</code>, в той же позиции, что и текст</td>
+</tr>
+<tr>
+<td>рост</td>
+<td>вверх, до 5 строк: 5 × 22 + 26 = 136 pt (максимум); дальше внутренний скролл (без индикатора), радиус 24 остаётся</td>
+</tr>
+<tr>
+<td>высота по строкам</td>
+<td>1 строка 48, 2 строки 70, 3 строки 92, 4 строки 114, 5 строк 136</td>
+</tr>
+<tr>
+<td>кнопки при росте</td>
+<td>остаются у нижнего края поля</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Примечание для React Native.</strong> В RN обводка входит в размеры блока, поэтому <code>paddingVertical: 13</code> вместе с <code>borderWidth: 1</code> даёт высоту 50, а не 48. Чтобы получить ровно 48, ставим <code>paddingVertical: 12</code> + <code>borderWidth: 1</code> (эффективно 13) и <code>minHeight: 48</code>, <code>maxHeight: 136</code>. Высота при росте: <code>clamp(высотаТекста + 26, 48, 136)</code>, где высотаТекста = число строк × 22. Android: <code>textAlignVertical: 'center'</code>, <code>includeFontPadding: false</code>. Скролл внутри поля включается только при достижении 136.</p>
+<h2>Запись</h2>
+<p>Состояние записи берётся из messenger-v1 без изменений (корзина, красная точка, таймер, подсказка, стоп 56 coral). Контейнер-карточка только выровнен под новые отступы: слева и справа 12, снизу 8 + safe area.</p>
+<h2>Кадры</h2>
+<p>Папка <code>png/</code> (3x, 1170×2532 для 390) и <code>jpg/</code> (превью 780 px). Имена: <code>input-&lt;состояние&gt;-&lt;язык&gt;-&lt;ширина&gt;[-dark].png</code>.</p>
+<ul>
+<li>Основные (ru, 390, светлая и тёмная): <code>input-empty</code>, <code>input-text</code>, <code>input-3lines</code>, <code>input-5lines</code>, <code>input-recording</code>, <code>input-sent-pressed</code>, плюс <code>input-6lines</code> (больше 5 строк, внутренний скролл).</li>
+<li>Ширины 360 и 430 (ru): <code>input-empty</code>, <code>input-text</code>.</li>
+<li>Языки (390): es, ca, en, uk для <code>input-empty</code> и <code>input-text</code>.</li>
+<li>Демо: чат «Baix Empordà», собеседники Laia, Núria, Pau, автор — Marc. Paddy нигде не нужен, везде латиницей.</li>
+<li>Нажатие <code>input-sent-pressed</code> показывает кнопку в <code>scale .96</code> (46×46 визуально, зона нажатия остаётся 48×48).</li>
+</ul>
+<p>Живой кадр: <code>frame.html?s=empty&amp;lang=ru&amp;theme=light&amp;w=390</code> (в нём поле растёт и кнопка оживает по-настоящему). Параметры <code>s</code>: empty, text, 3lines, 5lines, 6lines, recording, sent-pressed.</p>
+<h2>Проверки</h2>
+<p>См. <code>CHECK.md</code> (запуск: <code>python3 tools/check.py</code>): переполнение, высоты по строкам, отступы, выравнивание кнопок, tap ≥ 48, контраст, центровка плейсхолдера. Все 38 кадров проходят.</p>
+<h2>Что стоит решить (не менял, это за спекой)</h2>
+<p>Обводка поля <code>line</code> на фоне экрана даёт слабый контраст: светлая 1,25:1, тёмная 1,68:1. Для границ интерактивного поля WCAG 1.4.11 требует 3:1. Границу даёт и сама заливка <code>surface</code>, и плейсхолдер, поэтому это не блокер, но если нужен 3:1, подойдёт <code>lineStrong</code> (светлая 4,0:1, тёмная 4,6:1). Спеку не менял.</p></body></html>

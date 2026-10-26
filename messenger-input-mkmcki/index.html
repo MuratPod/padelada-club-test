@@ -1,0 +1,73 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Padelada: поле ввода мессенджера, кадры</title>
+<style>
+@font-face{font-family:'Golos Text';font-weight:400;src:url(fonts/GolosText_400Regular.woff2) format('woff2');font-display:block}
+@font-face{font-family:'Golos Text';font-weight:500;src:url(fonts/GolosText_500Medium.woff2) format('woff2');font-display:block}
+@font-face{font-family:'Golos Text';font-weight:700;src:url(fonts/GolosText_700Bold.woff2) format('woff2');font-display:block}
+@font-face{font-family:'Montserrat Alternates';font-weight:800;src:url(fonts/MontserratAlternates_800ExtraBold.woff2) format('woff2');font-display:block}
+@font-face{font-family:'Montserrat';font-weight:800;src:url(fonts/Montserrat_800ExtraBold.woff2) format('woff2');font-display:block}
+/* ===== messenger-input-v1: строка ввода (спека Messenger Manager, pt = css px) ===== */
+html,body{height:auto}
+body{overflow:auto;background:#E9E4EC}
+body.dark{background:#05080F}
+body.bare{background:var(--bg)}
+.frame{position:relative;width:var(--fw);height:var(--fh);overflow:hidden;--sab:34px}
+.frame .app{height:100%}
+.hdr{padding-top:0}
+.inrow{display:flex;align-items:flex-end;gap:8px;padding:0 12px calc(8px + var(--sab));flex:none}
+.inf{flex:1;min-width:0;display:block;appearance:none;-webkit-appearance:none;border:1px solid var(--line);border-radius:24px;background:var(--surface);color:var(--ink);
+  font:400 16px/22px var(--ft);padding:12px 16px;min-height:48px;max-height:136px;height:48px;resize:none;overflow-y:auto;outline:0;scrollbar-width:none}
+.inf::-webkit-scrollbar{display:none}
+.inf::placeholder{color:var(--inkMuted);opacity:1}
+.inf:focus-visible{outline:2px solid var(--focusRing);outline-offset:2px}
+.ibtn{width:48px;height:48px;border-radius:999px;display:flex;align-items:center;justify-content:center;flex:none;padding:0;touch-action:manipulation}
+.ibtn.mic{background:var(--inverse);color:var(--onInverse)}
+.ibtn.snd{background:var(--surfaceSunk);color:var(--inkMuted);cursor:default}
+.ibtn.snd.on{background:var(--brandCoral);color:var(--onBrand);box-shadow:var(--shadowCoral);cursor:pointer;transition:background-color .15s ease,color .15s ease,box-shadow .15s ease,transform .1s ease}
+.ibtn.snd.on:active,.ibtn.snd.on.pressed{transform:scale(.96)}
+.dark .ibtn.snd.on{box-shadow:none}
+@media (prefers-reduced-motion:reduce){.ibtn.snd.on{transition:none}}
+.comp.recc{margin:0 12px calc(8px + var(--sab));box-shadow:none}
+.hbar{position:absolute;left:50%;bottom:8px;width:134px;height:5px;border-radius:3px;background:var(--ink);transform:translateX(-50%);pointer-events:none}
+.mrow .avatar{flex:none}
+.msgs{padding-bottom:12px}
+/* галерея */
+.gal{font-family:var(--ft);padding:24px 16px 64px;max-width:1500px;margin:0 auto;color:#24123A}
+body.dark-g{background:#05080F;color:#F5F5F7}
+.gal h1{font:800 26px/32px 'Montserrat Alternates',sans-serif;margin-bottom:6px}
+.gal h2{font:800 18px/24px 'Montserrat Alternates',sans-serif;margin:32px 0 12px}
+.gal p.s{font:400 15px/22px var(--ft);max-width:720px;margin-bottom:8px}
+.grid{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start}
+.card{display:block;text-decoration:none;color:inherit;width:240px}
+.card.w{width:300px}
+.card img{display:block;width:100%;height:auto;border-radius:18px;border:1px solid rgba(128,128,128,.35)}
+.card b{display:block;font:700 13px/18px var(--ft);margin-top:6px}
+.card span{display:block;font:400 12px/16px var(--ft);opacity:.75}
+.tg{display:inline-flex;gap:8px;margin:12px 0}
+.tg a{min-height:48px;padding:0 18px;border-radius:999px;background:#24123A;color:#FFF1EA;font:700 15px/48px var(--ft);text-decoration:none}
+body{overflow:auto;background:#FFF1EA;height:auto}</style></head><body><div class="gal">
+<h1>Поле ввода мессенджера: кадры состояний</h1>
+<p class="s">Макет для проверки PR. Нажмите на кадр: откроется живой экран, в нём можно печатать (поле растёт до 5 строк, кнопка «Отправить» оживает при тексте) и отправлять. Размеры и значения в <a href="spec.html">SPEC.md</a>, проверки в <a href="check.html">CHECK.md</a>.</p>
+<div class="tg"><a href="frame.html?s=empty&lang=ru&theme=light&w=390">Пробовать вживую: светлая</a><a href="frame.html?s=empty&lang=ru&theme=dark&w=390">Пробовать вживую: тёмная</a></div>
+<h2>1. Состояния, ru, 390 (светлая и тёмная)</h2><div class="grid">
+<a class="card" href="frame.html?s=empty&lang=ru&theme=light&w=390"><img loading="lazy" src="jpg/input-empty-ru-390.jpg" alt="Пусто: «Отправить» неактивна"><b>Пусто: «Отправить» неактивна</b><span>ru · 390 · светлая</span></a><a class="card" href="frame.html?s=empty&lang=ru&theme=dark&w=390"><img loading="lazy" src="jpg/input-empty-ru-390-dark.jpg" alt="Пусто: «Отправить» неактивна"><b>Пусто: «Отправить» неактивна</b><span>ru · 390 · тёмная</span></a>
+<a class="card" href="frame.html?s=text&lang=ru&theme=light&w=390"><img loading="lazy" src="jpg/input-text-ru-390.jpg" alt="Короткий текст: «Отправить» coral"><b>Короткий текст: «Отправить» coral</b><span>ru · 390 · светлая</span></a><a class="card" href="frame.html?s=text&lang=ru&theme=dark&w=390"><img loading="lazy" src="jpg/input-text-ru-390-dark.jpg" alt="Короткий текст: «Отправить» coral"><b>Короткий текст: «Отправить» coral</b><span>ru · 390 · тёмная</span></a>
+<a class="card" href="frame.html?s=3lines&lang=ru&theme=light&w=390"><img loading="lazy" src="jpg/input-3lines-ru-390.jpg" alt="3 строки"><b>3 строки</b><span>ru · 390 · светлая</span></a><a class="card" href="frame.html?s=3lines&lang=ru&theme=dark&w=390"><img loading="lazy" src="jpg/input-3lines-ru-390-dark.jpg" alt="3 строки"><b>3 строки</b><span>ru · 390 · тёмная</span></a>
+<a class="card" href="frame.html?s=5lines&lang=ru&theme=light&w=390"><img loading="lazy" src="jpg/input-5lines-ru-390.jpg" alt="5 строк (максимум 136)"><b>5 строк (максимум 136)</b><span>ru · 390 · светлая</span></a><a class="card" href="frame.html?s=5lines&lang=ru&theme=dark&w=390"><img loading="lazy" src="jpg/input-5lines-ru-390-dark.jpg" alt="5 строк (максимум 136)"><b>5 строк (максимум 136)</b><span>ru · 390 · тёмная</span></a>
+<a class="card" href="frame.html?s=6lines&lang=ru&theme=light&w=390"><img loading="lazy" src="jpg/input-6lines-ru-390.jpg" alt="Больше 5 строк: внутренний скролл"><b>Больше 5 строк: внутренний скролл</b><span>ru · 390 · светлая</span></a><a class="card" href="frame.html?s=6lines&lang=ru&theme=dark&w=390"><img loading="lazy" src="jpg/input-6lines-ru-390-dark.jpg" alt="Больше 5 строк: внутренний скролл"><b>Больше 5 строк: внутренний скролл</b><span>ru · 390 · тёмная</span></a>
+<a class="card" href="frame.html?s=recording&lang=ru&theme=light&w=390"><img loading="lazy" src="jpg/input-recording-ru-390.jpg" alt="Запись (как в messenger-v1)"><b>Запись (как в messenger-v1)</b><span>ru · 390 · светлая</span></a><a class="card" href="frame.html?s=recording&lang=ru&theme=dark&w=390"><img loading="lazy" src="jpg/input-recording-ru-390-dark.jpg" alt="Запись (как в messenger-v1)"><b>Запись (как в messenger-v1)</b><span>ru · 390 · тёмная</span></a>
+<a class="card" href="frame.html?s=sent-pressed&lang=ru&theme=light&w=390"><img loading="lazy" src="jpg/input-sent-pressed-ru-390.jpg" alt="Нажатие «Отправить» (scale .96)"><b>Нажатие «Отправить» (scale .96)</b><span>ru · 390 · светлая</span></a><a class="card" href="frame.html?s=sent-pressed&lang=ru&theme=dark&w=390"><img loading="lazy" src="jpg/input-sent-pressed-ru-390-dark.jpg" alt="Нажатие «Отправить» (scale .96)"><b>Нажатие «Отправить» (scale .96)</b><span>ru · 390 · тёмная</span></a>
+</div><h2>2. Ширины 360 и 430, ru</h2><div class="grid">
+<a class="card" href="frame.html?s=empty&lang=ru&theme=light&w=360"><img loading="lazy" src="jpg/input-empty-ru-360.jpg" alt="Пусто"><b>Пусто</b><span>ru · 360 · светлая</span></a><a class="card" href="frame.html?s=empty&lang=ru&theme=dark&w=360"><img loading="lazy" src="jpg/input-empty-ru-360-dark.jpg" alt="Пусто"><b>Пусто</b><span>ru · 360 · тёмная</span></a>
+<a class="card" href="frame.html?s=text&lang=ru&theme=light&w=360"><img loading="lazy" src="jpg/input-text-ru-360.jpg" alt="Текст"><b>Текст</b><span>ru · 360 · светлая</span></a><a class="card" href="frame.html?s=text&lang=ru&theme=dark&w=360"><img loading="lazy" src="jpg/input-text-ru-360-dark.jpg" alt="Текст"><b>Текст</b><span>ru · 360 · тёмная</span></a>
+<a class="card" href="frame.html?s=empty&lang=ru&theme=light&w=430"><img loading="lazy" src="jpg/input-empty-ru-430.jpg" alt="Пусто"><b>Пусто</b><span>ru · 430 · светлая</span></a><a class="card" href="frame.html?s=empty&lang=ru&theme=dark&w=430"><img loading="lazy" src="jpg/input-empty-ru-430-dark.jpg" alt="Пусто"><b>Пусто</b><span>ru · 430 · тёмная</span></a>
+<a class="card" href="frame.html?s=text&lang=ru&theme=light&w=430"><img loading="lazy" src="jpg/input-text-ru-430.jpg" alt="Текст"><b>Текст</b><span>ru · 430 · светлая</span></a><a class="card" href="frame.html?s=text&lang=ru&theme=dark&w=430"><img loading="lazy" src="jpg/input-text-ru-430-dark.jpg" alt="Текст"><b>Текст</b><span>ru · 430 · тёмная</span></a>
+</div><h2>3. Языки, 390</h2><div class="grid">
+<a class="card" href="frame.html?s=empty&lang=es&theme=light&w=390"><img loading="lazy" src="jpg/input-empty-es-390.jpg" alt="Пусто"><b>Пусто</b><span>es · 390 · светлая</span></a><a class="card" href="frame.html?s=empty&lang=es&theme=dark&w=390"><img loading="lazy" src="jpg/input-empty-es-390-dark.jpg" alt="Пусто"><b>Пусто</b><span>es · 390 · тёмная</span></a>
+<a class="card" href="frame.html?s=text&lang=es&theme=light&w=390"><img loading="lazy" src="jpg/input-text-es-390.jpg" alt="Текст"><b>Текст</b><span>es · 390 · светлая</span></a><a class="card" href="frame.html?s=text&lang=es&theme=dark&w=390"><img loading="lazy" src="jpg/input-text-es-390-dark.jpg" alt="Текст"><b>Текст</b><span>es · 390 · тёмная</span></a>
+<a class="card" href="frame.html?s=empty&lang=ca&theme=light&w=390"><img loading="lazy" src="jpg/input-empty-ca-390.jpg" alt="Пусто"><b>Пусто</b><span>ca · 390 · светлая</span></a><a class="card" href="frame.html?s=empty&lang=ca&theme=dark&w=390"><img loading="lazy" src="jpg/input-empty-ca-390-dark.jpg" alt="Пусто"><b>Пусто</b><span>ca · 390 · тёмная</span></a>
+<a class="card" href="frame.html?s=text&lang=ca&theme=light&w=390"><img loading="lazy" src="jpg/input-text-ca-390.jpg" alt="Текст"><b>Текст</b><span>ca · 390 · светлая</span></a><a class="card" href="frame.html?s=text&lang=ca&theme=dark&w=390"><img loading="lazy" src="jpg/input-text-ca-390-dark.jpg" alt="Текст"><b>Текст</b><span>ca · 390 · тёмная</span></a>
+<a class="card" href="frame.html?s=empty&lang=en&theme=light&w=390"><img loading="lazy" src="jpg/input-empty-en-390.jpg" alt="Пусто"><b>Пусто</b><span>en · 390 · светлая</span></a><a class="card" href="frame.html?s=empty&lang=en&theme=dark&w=390"><img loading="lazy" src="jpg/input-empty-en-390-dark.jpg" alt="Пусто"><b>Пусто</b><span>en · 390 · тёмная</span></a>
+<a class="card" href="frame.html?s=text&lang=en&theme=light&w=390"><img loading="lazy" src="jpg/input-text-en-390.jpg" alt="Текст"><b>Текст</b><span>en · 390 · светлая</span></a><a class="card" href="frame.html?s=text&lang=en&theme=dark&w=390"><img loading="lazy" src="jpg/input-text-en-390-dark.jpg" alt="Текст"><b>Текст</b><span>en · 390 · тёмная</span></a>
+<a class="card" href="frame.html?s=empty&lang=uk&theme=light&w=390"><img loading="lazy" src="jpg/input-empty-uk-390.jpg" alt="Пусто"><b>Пусто</b><span>uk · 390 · светлая</span></a><a class="card" href="frame.html?s=empty&lang=uk&theme=dark&w=390"><img loading="lazy" src="jpg/input-empty-uk-390-dark.jpg" alt="Пусто"><b>Пусто</b><span>uk · 390 · тёмная</span></a>
+<a class="card" href="frame.html?s=text&lang=uk&theme=light&w=390"><img loading="lazy" src="jpg/input-text-uk-390.jpg" alt="Текст"><b>Текст</b><span>uk · 390 · светлая</span></a><a class="card" href="frame.html?s=text&lang=uk&theme=dark&w=390"><img loading="lazy" src="jpg/input-text-uk-390-dark.jpg" alt="Текст"><b>Текст</b><span>uk · 390 · тёмная</span></a>
+</div></div></body></html>
