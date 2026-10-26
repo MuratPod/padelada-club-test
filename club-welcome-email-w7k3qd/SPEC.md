@@ -1,4 +1,4 @@
-# Письмо club_welcome — «Вы в Padelada Club» (Padelada Design, 26.10.2026)
+# Письмо club_welcome — «Вы в Club Padelada» (Padelada Design, 26.10.2026)
 
 Превью (закрытая ссылка, noindex): https://muratpod.github.io/padelada-club-test/club-welcome-email-w7k3qd/
 Живые страницы по языкам: `https://muratpod.github.io/padelada-club-test/club-welcome-email-w7k3qd/view/club_welcome.ru.html` (и `uk`, `es`, `ca`, `en`).
@@ -42,27 +42,27 @@ club-welcome-email-v1/
 | `{{club_url}}` | `{{{CLUB_URL}}}` | https://padelada.com/club | кнопка «Открыть клуб» |
 | `{{support_url}}` | `{{{SUPPORT_URL}}}` | https://padelada.com/support | подвал |
 
-Язык письма — `profiles.language` (es по умолчанию), как в `mail.ts`. Ru на «вы», uk на «ви»; «Padelada Club», «Padelada» — латиницей.
+Язык письма — `profiles.language` (es по умолчанию), как в `mail.ts`. Ru на «вы», uk на «ви»; «Club Padelada», «Padelada» — латиницей.
 
 ## 3. Тексты на 5 языках
 
 | Блок | `es` | `ca` | `en` | `ru` | `uk` |
 |---|---|---|---|---|---|
-| Тема письма (subject) | Ya eres de Padelada Club | Ja ets de Padelada Club | You’re in Padelada Club | Вы в Padelada Club | Ви в Padelada Club |
-| Заголовок | Ya eres de Padelada Club | Ja ets de Padelada Club | You’re in Padelada Club | Вы в Padelada Club | Ви в Padelada Club |
-| Приветствие | ¡Hola, {{name}}! Ya eres miembro de Padelada Club. | Hola, {{name}}! Ja ets membre de Padelada Club. | Hi {{name}}, you’re now a member of Padelada Club. | Здравствуйте, {{name}}! Теперь вы член Padelada Club. | Вітаємо, {{name}}! Тепер ви член Padelada Club. |
+| Тема письма (subject) | Ya eres de Club Padelada | Ja ets de Club Padelada | You’re in Club Padelada | Вы в Club Padelada | Ви в Club Padelada |
+| Заголовок | Ya eres de Club Padelada | Ja ets de Club Padelada | You’re in Club Padelada | Вы в Club Padelada | Ви в Club Padelada |
+| Приветствие | ¡Hola, {{name}}! Ya eres miembro de Club Padelada. | Hola, {{name}}! Ja ets membre de Club Padelada. | Hi {{name}}, you’re now a member of Club Padelada. | Здравствуйте, {{name}}! Теперь вы член Club Padelada. | Вітаємо, {{name}}! Тепер ви член Club Padelada. |
 | Знак номера | N.º | Núm. | No. | № | № |
-| Подпись под номером | miembro de Padelada Club | membre de Padelada Club | member of Padelada Club | член Padelada Club | член Padelada Club |
+| Подпись под номером | miembro de Club Padelada | membre de Club Padelada | member of Club Padelada | член Club Padelada | член Club Padelada |
 | Текст про карточку | Tu tarjeta está en la pestaña Club de la app. | La teva targeta és a la pestanya Club de l’app. | Your card is in the Club tab of the app. | Карточка — во вкладке «Клуб» в приложении. | Картка — у вкладці «Клуб» у застосунку. |
 | Кнопка | Abrir el club | Obrir el club | Open the club | Открыть клуб | Відкрити клуб |
 | Подпись | Nos vemos en la pista. | Ens veiem a la pista. | See you on court. | До встречи на корте. | До зустрічі на корті. |
-| Подвал | Recibes este correo porque te has hecho miembro de Padelada Club. | Reps aquest correu perquè t’has fet membre de Padelada Club. | You’re receiving this email because you became a member of Padelada Club. | Вы получили это письмо, потому что стали членом Padelada Club. | Ви отримали цей лист, тому що стали членом Padelada Club. |
+| Подвал | Recibes este correo porque te has hecho miembro de Club Padelada. | Reps aquest correu perquè t’has fet membre de Club Padelada. | You’re receiving this email because you became a member of Club Padelada. | Вы получили это письмо, потому что стали членом Club Padelada. | Ви отримали цей лист, тому що стали членом Club Padelada. |
 | Ссылка поддержки | Ayuda | Ajuda | Support | Поддержка | Підтримка |
 | Прехедер | Tu número de miembro es el N.º {{member_number}}. Tu tarjeta ya está en la app. | El teu número de membre és el Núm. {{member_number}}. La teva targeta ja és a l’app. | Your member number is No. {{member_number}}. Your card is already in the app. | Ваш номер члена клуба — № {{member_number}}. Карточка уже в приложении. | Ваш номер члена клубу — № {{member_number}}. Картка вже в застосунку. |
 
 Знак номера: es «N.º», ca «Núm.», en «No.», ru/uk «№» (как в `mail.ts`). Шрифт Montserrat Alternates рисует заглавную N строчной формой — это особенность гарнитуры.
-Темы es/ca взяты из `mail.ts` («Ya eres de Padelada Club», «Ja ets de Padelada Club»), а не из примера в задаче («Ya estás en…», «Ja ets a…»): они уже в продакшене и значат то же. Если нужна версия «Ya estás en» — одна правка в `tools/texts.py` и `python3 tools/build.py`.
-Украинский: «Ви в Padelada Club» — «в» верно (после гласной «и», перед согласной «P»); «Вітаємо», «застосунок», «Підтримка» — как в остальных письмах проекта.
+Темы es/ca взяты из `mail.ts` («Ya eres de Club Padelada», «Ja ets de Club Padelada»), а не из примера в задаче («Ya estás en…», «Ja ets a…»): они уже в продакшене и значат то же. Если нужна версия «Ya estás en» — одна правка в `tools/texts.py` и `python3 tools/build.py`.
+Украинский: «Ви в Club Padelada» — «в» верно (после гласной «и», перед согласной «P»); «Вітаємо», «застосунок», «Підтримка» — как в остальных письмах проекта.
 
 ## 4. Вёрстка и размеры (pt = css px)
 
