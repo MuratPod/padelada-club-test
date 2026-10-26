@@ -48,11 +48,17 @@
         if (img) {
           var src = C.phs[z];
           if (!src) { var s = 0; for (var i = 0; i < z.length; i++) s += z.charCodeAt(i); src = C.fb[s % C.fb.length]; }
-          img.src = src;
+          if (img.getAttribute('src') !== src) {
+            img.classList.remove('is-in');
+            if (/-1200\.webp$/.test(src)) { img.sizes = '(max-width:640px) 60vw, 100vw'; img.srcset = src.replace('-1200.', '-720.') + ' 720w, ' + src + ' 1200w'; } else img.removeAttribute('srcset');
+            img.src = src;
+          }
+          if (C.lq && C.lq[src]) h.style.setProperty('--lq', 'url(' + C.lq[src] + ')');
+          h.classList.add('lq');
         }
         if (n !== null && +n > 0) {
-          var k = +n, g = Math.round(k * 1.5), st = h.querySelector('[data-zstats]');
-          if (st) st.innerHTML = '<span class="st-zstat">' + k + ' ' + pl(k, C.mfmt) + '<i class="st-zdot"> ·</i></span><span class="st-zstat">' + g + ' ' + pl(g, C.gfmt) + '</span> <span class="demo">' + C.demo + '</span>';
+          var k = +n, st = h.querySelector('[data-zstats]');
+          if (st) st.innerHTML = '<span class="st-zstat">' + k + ' ' + pl(k, C.mfmt) + '</span> <span class="demo">' + C.demo + '</span>';
         }
       }
       var box = document.querySelector('div[data-st="' + state + '"] [data-tours]');
@@ -68,6 +74,38 @@
       }
     }
   }
+
+  /* — страница комарки: карта с положением комарки и место в рейтинге комарок — */
+  if (window.V3C && window.V3C.zl) {
+    (function () {
+      var C = window.V3C, Z = C.zl, qs2 = new URLSearchParams(location.search), z2 = qs2.get('z');
+      var host = document.querySelector('[data-zmap]'); if (!host) return;
+      var st2 = document.documentElement.getAttribute('data-state'), nm = z2 || 'Baix Empordà';
+      var nn = qs2.get('n'); nn = nn !== null && !isNaN(+nn) ? +nn : (C.rk[nm] !== undefined ? C.rk[nm] : 0);
+      if (st2 === 'empty') nn = 0;
+      var rv = document.querySelector('[data-zrank-v]'), rb = document.querySelector('[data-zrank]');
+      if (rv) {
+        var dm = rb.querySelector('.demo'); if (dm) dm.textContent = C.demo;
+        if (nn > 0) {
+          var r = 1, key; for (key in C.rk) if (key !== nm && C.rk[key] > nn) r++;
+          rv.textContent = r + ' ' + Z.of + ' ' + Z.total;
+        } else { rb.querySelector('.v3-zloc__l').textContent = Z.none; rv.textContent = ''; if (dm) dm.hidden = true; }
+      }
+      fetch(Z.map).then(function (r) { return r.ok ? r.text() : Promise.reject(); }).then(function (t) {
+        host.innerHTML = t;
+        var svg = host.querySelector('svg'); if (!svg) return;
+        svg.setAttribute('class', 'zmap'); svg.setAttribute('aria-hidden', 'true'); svg.setAttribute('focusable', 'false');
+        svg.querySelectorAll('path').forEach(function (p) { if (p.getAttribute('data-z') === nm) { p.setAttribute('class', 'is-here'); svg.appendChild(p); } });
+        host.classList.add('is-in');
+      }).catch(function () { host.hidden = true; });
+    })();
+  }
+
+  /* — переключатель языка сохраняет параметры страницы (z, state, n) — */
+  document.querySelectorAll('a[hreflang],.seg a[lang]').forEach(function (a) {
+    var h = a.getAttribute('href');
+    if (h && !/^(https?:|mailto:|#)/.test(h) && (location.search || location.hash)) a.setAttribute('href', h.split('#')[0].split('?')[0] + location.search + location.hash);
+  });
 
   /* — первый экран: на телефоне и планшете картинка заканчивается над подписью CLUB PADELADA — */
   var hs = document.querySelector('.st-hero--wide');

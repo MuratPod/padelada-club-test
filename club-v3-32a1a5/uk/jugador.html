@@ -11,7 +11,8 @@
 <link rel="stylesheet" href="../css/club.css"><link rel="stylesheet" href="../css/story.css"><link rel="stylesheet" href="../css/v3.css">
 
 
-<script>var u=new URLSearchParams(location.search),q=u.get('state'),n=u.get('n');if(!q&&n!==null)q=(+n===0?'empty':(+n<16?'young':'base'));document.documentElement.setAttribute('data-state',q||'base');</script></head>
+<script>var u=new URLSearchParams(location.search),q=u.get('state'),n=u.get('n');if(!q&&n!==null)q=(+n===0?'empty':(+n<16?'young':'base'));document.documentElement.setAttribute('data-state',q||'base');</script><link rel="preload" as="font" type="font/woff2" crossorigin href="/padelada-club-test/club-v3-32a1a5/assets/fonts/golos-cyrillic.woff2"><script>document.documentElement.classList.add("lzjs")</script>
+</head>
 <body class="story story--player">
 <div class="page-glow" aria-hidden="true"><i class="g1"></i><i class="g2"></i><i class="g3"></i></div>
 <div class="mockbar" role="note"><b>Макет</b> Дані з позначкою «Приклад» не справжні</div><nav class="mockstates" aria-label="Стани макета"><span>Стан:</span><a href="?state=base" data-state-link="base">Член клубу</a><a href="?state=captain" data-state-link="captain">Капітан</a><a href="?state=founder" data-state-link="founder">Засновник комарки</a><a href="?state=notfound" data-state-link="notfound">Не знайдено</a></nav>
@@ -28,13 +29,13 @@
   <p class="dlpop__t" id="dlpop-t">Завантажити Padelada</p>
   <img class="dlpop__qr" src="../assets/qr-app.svg" alt="QR" width="168" height="168">
   <p class="dlpop__p">Наведіть камеру телефона на код — відкриється потрібний магазин.</p>
-  <div class="store-row"><a class="store-badge" href="https://apps.apple.com/app/id6819019168" rel="noopener"><img src="../assets/badges/apple-en-white.svg" alt="App Store" width="138" height="46"></a><a class="store-badge" href="https://play.google.com/store/apps/details?id=com.padelada.app" rel="noopener"><img class="play" src="../assets/badges/google-uk.png" alt="Google Play" width="160" height="62"></a></div>
+  <div class="store-row"><a class="store-badge" href="https://apps.apple.com/app/id6819019168" rel="noopener"><img src="../assets/badges/apple-uk-white.svg" alt="App Store" width="138" height="46"></a><a class="store-badge" href="https://play.google.com/store/apps/details?id=com.padelada.app" rel="noopener"><img class="play" src="../assets/badges/google-uk.png" alt="Google Play" width="160" height="62"></a></div>
  </div>
 </header>
 <main>
 <div data-st="base">
-<section class="st-phero">
- <img class="st-phero__bg" src="/padelada-club-test/club-v3-32a1a5/assets/places/baix-emporda-hd.webp" alt="" decoding="async">
+<section class="lq st-phero" style="--lq:url(data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAAAQBACdASoUAA0APwFqrU8rJaQiMAgBYCAJYgCdMoGv/gPI9TKTTUB6AADifhLRKuQ/lxsi/SwB4AbX4j09cHgomPk/x6VUyO54j4uwj4aLX5FkMsgZNNZQDjvH7e7avbMMzV6/QSTeBZkqDghYw2CY7SbAeIg91Q7R1Dy4UTwdOSf7lgA=)">
+ <picture><source type="image/avif" srcset="/padelada-club-test/club-v3-32a1a5/assets/places/baix-emporda-480.avif 480w, /padelada-club-test/club-v3-32a1a5/assets/places/baix-emporda-720.avif 720w, /padelada-club-test/club-v3-32a1a5/assets/places/baix-emporda-1200.avif 1200w" sizes="100vw"><img class="st-phero__bg lz" src="/padelada-club-test/club-v3-32a1a5/assets/places/baix-emporda-1200.webp" srcset="/padelada-club-test/club-v3-32a1a5/assets/places/baix-emporda-480.webp 480w, /padelada-club-test/club-v3-32a1a5/assets/places/baix-emporda-720.webp 720w, /padelada-club-test/club-v3-32a1a5/assets/places/baix-emporda-1200.webp 1200w" sizes="100vw" width="1200" height="800" alt="" decoding="async"></picture>
  <div class="st-phero__shade" aria-hidden="true"></div>
  <div class="wrap st-phero__in">
   <nav class="crumbs crumbs--on" aria-label="breadcrumb"><a href="index.html#mapa">Комарки</a><svg class=""  width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><a href="comarca.html">Baix Empordà</a><svg class=""  width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span aria-current="page">Ім’я Прізвище</span></nav>
@@ -53,8 +54,8 @@
  <ol class="st-feed st-feed--m"><li class="r d1"><time>18 жов</time><span class="st-res is-w">перемога</span><div><p class="st-feed__t">A · B <span class="st-vs">vs</span> C · D</p><p class="st-feed__k num">6:4 3:6 10:7</p></div></li><li class="r d2"><time>15 жов</time><span class="st-res is-l">поразка</span><div><p class="st-feed__t">A · E <span class="st-vs">vs</span> F · G</p><p class="st-feed__k num">4:6 4:6</p></div></li><li class="r d3"><time>11 жов</time><span class="st-res is-w">перемога</span><div><p class="st-feed__t">A · B <span class="st-vs">vs</span> H · J</p><p class="st-feed__k num">6:2 6:3</p></div></li></ol>
 </div></section>
 </div><div data-st="captain">
-<section class="st-phero">
- <img class="st-phero__bg" src="/padelada-club-test/club-v3-32a1a5/assets/places/baix-emporda-hd.webp" alt="" decoding="async">
+<section class="lq st-phero" style="--lq:url(data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAAAQBACdASoUAA0APwFqrU8rJaQiMAgBYCAJYgCdMoGv/gPI9TKTTUB6AADifhLRKuQ/lxsi/SwB4AbX4j09cHgomPk/x6VUyO54j4uwj4aLX5FkMsgZNNZQDjvH7e7avbMMzV6/QSTeBZkqDghYw2CY7SbAeIg91Q7R1Dy4UTwdOSf7lgA=)">
+ <picture><source type="image/avif" srcset="/padelada-club-test/club-v3-32a1a5/assets/places/baix-emporda-480.avif 480w, /padelada-club-test/club-v3-32a1a5/assets/places/baix-emporda-720.avif 720w, /padelada-club-test/club-v3-32a1a5/assets/places/baix-emporda-1200.avif 1200w" sizes="100vw"><img class="st-phero__bg lz" src="/padelada-club-test/club-v3-32a1a5/assets/places/baix-emporda-1200.webp" srcset="/padelada-club-test/club-v3-32a1a5/assets/places/baix-emporda-480.webp 480w, /padelada-club-test/club-v3-32a1a5/assets/places/baix-emporda-720.webp 720w, /padelada-club-test/club-v3-32a1a5/assets/places/baix-emporda-1200.webp 1200w" sizes="100vw" width="1200" height="800" alt="" decoding="async"></picture>
  <div class="st-phero__shade" aria-hidden="true"></div>
  <div class="wrap st-phero__in">
   <nav class="crumbs crumbs--on" aria-label="breadcrumb"><a href="index.html#mapa">Комарки</a><svg class=""  width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><a href="comarca.html">Baix Empordà</a><svg class=""  width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span aria-current="page">Ім’я Прізвище</span></nav>
@@ -73,8 +74,8 @@
  <ol class="st-feed st-feed--m"><li class="r d1"><time>18 жов</time><span class="st-res is-w">перемога</span><div><p class="st-feed__t">A · B <span class="st-vs">vs</span> C · D</p><p class="st-feed__k num">6:4 3:6 10:7</p></div></li><li class="r d2"><time>15 жов</time><span class="st-res is-l">поразка</span><div><p class="st-feed__t">A · E <span class="st-vs">vs</span> F · G</p><p class="st-feed__k num">4:6 4:6</p></div></li><li class="r d3"><time>11 жов</time><span class="st-res is-w">перемога</span><div><p class="st-feed__t">A · B <span class="st-vs">vs</span> H · J</p><p class="st-feed__k num">6:2 6:3</p></div></li></ol>
 </div></section>
 </div><div data-st="founder">
-<section class="st-phero">
- <img class="st-phero__bg" src="/padelada-club-test/club-v3-32a1a5/assets/places/baix-emporda-hd.webp" alt="" decoding="async">
+<section class="lq st-phero" style="--lq:url(data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAAAQBACdASoUAA0APwFqrU8rJaQiMAgBYCAJYgCdMoGv/gPI9TKTTUB6AADifhLRKuQ/lxsi/SwB4AbX4j09cHgomPk/x6VUyO54j4uwj4aLX5FkMsgZNNZQDjvH7e7avbMMzV6/QSTeBZkqDghYw2CY7SbAeIg91Q7R1Dy4UTwdOSf7lgA=)">
+ <picture><source type="image/avif" srcset="/padelada-club-test/club-v3-32a1a5/assets/places/baix-emporda-480.avif 480w, /padelada-club-test/club-v3-32a1a5/assets/places/baix-emporda-720.avif 720w, /padelada-club-test/club-v3-32a1a5/assets/places/baix-emporda-1200.avif 1200w" sizes="100vw"><img class="st-phero__bg lz" src="/padelada-club-test/club-v3-32a1a5/assets/places/baix-emporda-1200.webp" srcset="/padelada-club-test/club-v3-32a1a5/assets/places/baix-emporda-480.webp 480w, /padelada-club-test/club-v3-32a1a5/assets/places/baix-emporda-720.webp 720w, /padelada-club-test/club-v3-32a1a5/assets/places/baix-emporda-1200.webp 1200w" sizes="100vw" width="1200" height="800" alt="" decoding="async"></picture>
  <div class="st-phero__shade" aria-hidden="true"></div>
  <div class="wrap st-phero__in">
   <nav class="crumbs crumbs--on" aria-label="breadcrumb"><a href="index.html#mapa">Комарки</a><svg class=""  width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><a href="comarca.html">Baix Empordà</a><svg class=""  width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span aria-current="page">Ім’я Прізвище</span></nav>
@@ -108,7 +109,7 @@
   <div class="foot__right"><div class="seg" role="group" aria-label="Мова"><a href="../ca/jugador.html" lang="ca">CA</a><a href="../jugador.html" lang="es">ES</a><a href="../en/jugador.html" lang="en">EN</a><a href="../ru/jugador.html" lang="ru">RU</a><a href="../uk/jugador.html" lang="uk" aria-current="page">UK</a></div></div>
  </div>
 </footer>
-<script src="../js/club.js"></script>
+<script>(function(){function d(i){i.classList.add("is-in")}document.querySelectorAll("img.lz").forEach(function(i){i.addEventListener("load",function(){d(i)});i.addEventListener("error",function(){d(i)});if(i.complete&&(i.naturalWidth||!i.currentSrc))d(i)});setTimeout(function(){document.documentElement.classList.add("lz-all")},5000)})()</script><script src="../js/club.js"></script>
 
 </body>
 </html>
