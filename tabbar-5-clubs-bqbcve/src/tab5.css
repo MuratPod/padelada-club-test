@@ -1,0 +1,87 @@
+/* ===== tabbar-5-clubs-v1: таб-бар на 5 вкладок (Чаты в центре, крупнее), экран «Клубы» ===== */
+.i28{width:28px;height:28px}
+/* геометрия: капсула 72, поля 12, внутренний отступ 14; 4 обычные ячейки flex, центральная «Чаты» 68; вертикаль 6 · 44 · 14 · 8 как в TABBAR-SPEC */
+.tabs.glass.t5{--tbC:68px}
+.tabs.glass.t5 .tab{font-family:var(--ft)}
+.tabs.glass.t5 .tab:not(.ctr){flex:1 1 0}
+.tabs.glass.t5 .tab.ctr{flex:0 0 var(--tbC);width:var(--tbC);min-width:var(--tbC);max-width:var(--tbC);padding:6px 0 0}
+/* «Чаты»: линза-стадион 64×52 (вместо круга 44), верх линзы на 4 pt выше капсулы (y = −4…48), подпись на той же линии, что у остальных (y = 50…64) */
+.tabs.glass.t5 .tab.ctr .i{width:64px;height:52px;padding:12px 18px;margin:-10px 0 2px;border-radius:0}
+.tabs.glass.t5 .tab.ctr::before{width:64px;height:52px;margin-left:-32px;top:-4px;border-radius:26px;outline-offset:-5px}
+.tabs.glass.t5 .tab.ctr::after{width:56px;height:44px;margin-left:-28px;top:0;border-radius:22px;transform:scale(.72)}
+.tabs.glass.t5 .tab.ctr.on::after,.tabs.glass.t5 .tab.ctr.is-press::after,.tabs.glass.t5 .tab.ctr:active::after{transform:scale(1)}
+.tabs.glass.t5 .tab.ctr:active::after,.tabs.glass.t5 .tab.ctr.is-press::after{transform:scale(1.06)}
+/* бейдж непрочитанного: coral, ink 5,73:1, у правого верхнего угла значка */
+.tabs.glass.t5 .tab.ctr .tbd{position:absolute;z-index:3;left:calc(50% + 9px);top:-8px;box-sizing:content-box;min-width:18px;height:20px;padding:0 3px;border-radius:12px;border:2px solid var(--tabBar);background:var(--brandCoral);color:var(--onBrand);font:700 12px/20px var(--ft);text-align:center;letter-spacing:0;pointer-events:none}
+.tabs.glass.t5 .tab:focus-visible{outline:2px solid var(--focusRing);outline-offset:-4px;border-radius:999px}
+/* прокручиваемый контент: низ = 72 + низ бара + 16 */
+.scr.kl,.scr.pl,.scr.ml{padding-bottom:calc(var(--tbB,20px) + 72px + 16px)}
+/* ---- Клубы ---- */
+.hdr.kh{min-height:64px;border-bottom:1px solid transparent;padding-bottom:8px}
+.hdr.kh .ttl h1{font:800 28px/32px var(--fd)}
+.hdr.kh.sc{border-bottom-color:var(--line)}
+.ksec{display:flex;align-items:center;justify-content:space-between;min-height:48px;margin:4px 0 4px}
+.ksec h2{font:800 20px/24px var(--fd);color:var(--ink)}
+.ksec.k2{margin-top:12px}
+.acard{display:block;width:100%;background:var(--surface);border-radius:var(--r-lg);box-shadow:var(--shadowCard);padding:16px;margin:0 0 12px;text-align:left;color:var(--ink);position:relative}
+.dark .acard{box-shadow:0 0 0 1px var(--line)}
+.acard .ah{display:flex;align-items:center;gap:10px;min-height:40px}
+.acard .av{width:40px;height:40px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;color:var(--ink)}
+.acard .av .i{width:20px;height:20px}
+.acard .an{flex:1;min-width:0}
+.acard .an b{display:block;font:700 15px/20px var(--ft);color:var(--ink)}
+.acard .an small{display:block;font:400 13px/18px var(--ft);color:var(--inkMuted)}
+.acard .nd{width:10px;height:10px;border-radius:50%;background:var(--inkAccent);flex:none;align-self:flex-start;margin-top:5px}
+.acard .kd{display:inline-flex;align-items:center;gap:6px;margin:12px 0 8px;padding:4px 10px 4px 8px;border-radius:999px;font:700 13px/18px var(--ft);color:var(--ink)}
+.acard .kd .i{width:16px;height:16px}
+.kd.t-tour{background:var(--tintMango)}.kd.t-court{background:var(--tintMint)}.kd.t-coach{background:var(--tintCoral)}
+.acard h3{font:700 17px/22px var(--ft);color:var(--ink);margin:0 0 4px}
+.acard p{font:400 14px/20px var(--ft);color:var(--inkMuted)}
+.krow{display:flex;align-items:center;gap:12px;width:100%;min-height:80px;padding:12px 12px 12px 12px;border-radius:var(--r-lg);background:var(--surface);box-shadow:var(--shadowCard);margin:0 0 8px;text-align:left;color:var(--ink)}
+.dark .krow{box-shadow:0 0 0 1px var(--line)}
+.krow .kav{width:48px;height:48px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;color:var(--ink);font:700 16px/20px var(--ft)}
+.krow .lb{flex:1;min-width:0}
+.krow .lb b{display:block;font:700 16px/20px var(--ft);color:var(--ink)}
+.krow .lb small{display:block;font:400 13px/18px var(--ft);color:var(--inkMuted)}
+.krow .lb em{display:flex;align-items:center;gap:4px;font:500 13px/18px var(--ft);font-style:normal;color:var(--inkMuted)}
+.krow .lb em .i{width:14px;height:14px}
+.krow .rt{display:flex;align-items:center;gap:6px;flex:none}
+.krow .rt>.i{color:var(--inkMuted);width:24px;height:24px}
+.krow .join{min-height:48px;padding:10px 16px}
+.kfind{width:100%;margin:8px 0 0}
+.kemp{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding:16px 8px 8px}
+.kemp .ke{width:72px;height:72px;border-radius:50%;background:var(--tintMango);color:var(--ink);display:flex;align-items:center;justify-content:center;margin-bottom:4px}
+.kemp .ke .i{width:32px;height:32px}
+.kemp h2{font:800 22px/28px var(--fd);color:var(--ink);text-wrap:balance}
+.kemp p{font:400 15px/22px var(--ft);color:var(--inkMuted);max-width:320px;text-wrap:balance;margin-bottom:8px}
+.kemp .pill{width:100%;max-width:320px}
+/* ---- Матчи, Профиль ---- */
+.mseg{margin:4px 0 12px}
+.mcard{display:block;width:100%;background:var(--surface);border-radius:var(--r-lg);box-shadow:var(--shadowCard);padding:16px;margin:0 0 12px;text-align:left;color:var(--ink)}
+.dark .mcard{box-shadow:0 0 0 1px var(--line)}
+.mcard .mt{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.mcard .mt b{font:800 18px/24px var(--fd);color:var(--ink)}
+.mcard .mm{font:400 14px/20px var(--ft);color:var(--inkMuted);margin:2px 0 12px}
+.mcard .mp{display:flex;align-items:center;gap:6px}
+.mcard .mp .avatar{width:40px;height:40px;font-size:14px}
+.mcard .mp .slot{width:40px;height:40px;border-radius:50%;border:2px dashed var(--lineStrong);display:flex;align-items:center;justify-content:center;color:var(--inkMuted)}
+.mtag{display:inline-flex;align-items:center;padding:4px 10px;border-radius:999px;font:700 13px/18px var(--ft);background:var(--tintCoral);color:var(--ink);white-space:nowrap}
+.mtag.ok{background:var(--tintMint)}
+.pfh{display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;padding:8px 0 16px}
+.pfh .avatar{width:88px;height:88px;font:700 32px/36px var(--ft)}
+.pfh h2{font:800 24px/28px var(--fd);color:var(--ink);margin-top:8px}
+.pfh p{font:400 14px/20px var(--ft);color:var(--inkMuted)}
+.pfs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 12px}
+.pfs div{background:var(--surface);border-radius:var(--r-md);box-shadow:var(--shadowCard);padding:12px 8px;text-align:center}
+.dark .pfs div{box-shadow:0 0 0 1px var(--line)}
+.pfs b{display:block;font:800 22px/28px var(--fd);color:var(--ink)}
+.pfs span{display:block;font:400 13px/18px var(--ft);color:var(--inkMuted)}
+.prow{display:flex;align-items:center;gap:12px;width:100%;min-height:56px;padding:0 16px;border-radius:var(--r-md);background:var(--surface);box-shadow:var(--shadowCard);margin:0 0 8px;text-align:left;font:700 16px/20px var(--ft);color:var(--ink)}
+.dark .prow{box-shadow:0 0 0 1px var(--line)}
+.prow span{flex:1}.prow>.i:last-child{color:var(--inkMuted)}
+/* ---- лист размеров ---- */
+.t5sh .tbo{margin:4px 0 12px}
+.t5sh table{width:100%;border-collapse:collapse;font:400 13px/18px var(--ft);margin:4px 0 8px}
+.t5sh th,.t5sh td{padding:4px 6px;border-bottom:1px solid var(--line);text-align:left}
+.t5sh td.ok{color:var(--success)}.t5sh td.bad{color:var(--danger);font-weight:700}
+.t5sh .sh{font:700 12px/14px var(--ft);letter-spacing:1.44px;text-transform:uppercase;color:var(--inkMuted);margin:16px 0 8px}

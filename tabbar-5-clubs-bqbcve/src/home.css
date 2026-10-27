@@ -1,0 +1,174 @@
+
+/* ===== home-error-v1: Главная, ошибка загрузки, нет сети, спецификация «Повторить» ===== */
+.i18{width:18px;height:18px}
+.hh{padding:8px 16px 12px;gap:12px}
+.hh .ttl h1{font:800 28px/32px var(--fd);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:420px){.hh .ttl h1{font-size:26px;line-height:32px}}
+@media (max-width:350px){.hh .ttl h1{font-size:22px;line-height:28px}}
+.hav{width:48px;height:48px;font:700 17px/20px var(--ft);border:0;padding:0}
+.hs{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:56px;padding:0 16px;border-radius:999px;background:var(--surface);border:2px solid var(--lineStrong);color:var(--ink);font:700 16px/20px var(--ft);margin:0 0 12px;text-align:center}
+.hs span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hclub{padding:0 16px;gap:0;margin:0 0 12px}
+.hrow{display:flex;align-items:center;gap:12px;min-height:64px;width:100%;padding:8px 0;color:var(--ink)}
+.hrow+.hrow{border-top:1px solid var(--line)}
+.hrow .lb{flex:1;min-width:0}
+.hrow .lb b{display:block;font:700 17px/22px var(--ft)}
+.hrow .lb small{display:block;font:400 14px/20px var(--ft);color:var(--inkMuted)}
+.hrow>.i{color:var(--inkMuted)}
+.hcta{width:100%;margin:0 0 16px}
+.hcta .i{width:24px;height:24px}
+.hsec{display:flex;align-items:center;justify-content:space-between;min-height:48px;margin:0 0 4px}
+.hsec h2{font:800 20px/24px var(--fd);color:var(--ink)}
+.hall{min-height:48px;min-width:48px;padding:0 4px;display:flex;align-items:center;justify-content:flex-end;font:700 15px/18px var(--ft);color:var(--inkAccent)}
+.pcard{display:flex;align-items:center;gap:12px;width:100%;min-height:72px;padding:12px 16px 12px 12px;border-radius:var(--r-lg);background:var(--surface);box-shadow:var(--shadowCard);margin-bottom:8px}
+.dark .pcard{box-shadow:0 0 0 1px var(--line)}
+.pcard .ci{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;color:var(--ink);background:var(--tintMint)}
+.pcard .ci.m{background:var(--tintMango)}
+.pcard .lb{flex:1;min-width:0}
+.pcard .lb b{display:block;font:700 16px/20px var(--ft);color:var(--ink)}
+.pcard .lb small{display:block;font:400 13px/18px var(--ft);color:var(--inkMuted)}
+.pcard .lb em{display:block;font:700 13px/18px var(--ft);font-style:normal;color:var(--success)}
+.pcard>.i{color:var(--inkMuted)}
+/* общая плашка состояния (вместо трёх «Не удалось загрузить») */
+.hplate{background:var(--surface);border-radius:var(--r-lg);box-shadow:var(--shadowCard);padding:24px 16px 20px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px}
+.dark .hplate{box-shadow:0 0 0 1px var(--line)}
+.hplate .pi{width:56px;height:56px;border-radius:50%;background:var(--tintMango);color:var(--ink);display:flex;align-items:center;justify-content:center;margin-bottom:4px}
+.hplate .pi .i{width:28px;height:28px}
+.hplate h3{font:800 18px/24px var(--fd);color:var(--ink)}
+.hplate p{font:400 15px/22px var(--ft);color:var(--inkMuted);max-width:320px;margin-bottom:8px;text-wrap:balance}
+.hplate .retry{width:100%;max-width:280px}
+/* верхний узкий баннер «Нет подключения» */
+.hbn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:8px 16px;background:var(--tintMango);color:var(--ink);font:700 14px/20px var(--ft);flex:none;border-bottom:1.5px solid var(--lineStrong)}
+.hbn .i{width:18px;height:18px}
+
+/* ===== единый компонент «Повторить» ===== */
+.retry{min-height:48px;padding:12px 20px;gap:8px;border-radius:999px;font:700 15px/18px var(--ft);transition:transform .12s ease,background-color .18s ease}
+.retry .i{width:20px;height:20px}
+.retry.pri{background:var(--brandCoral);color:var(--onBrand);box-shadow:var(--shadowCoral)}
+.retry:active,.retry.is-press{transform:scale(.96);box-shadow:none}
+.retry.is-focus,.retry:focus-visible{outline:none;box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--focusRing)}
+.retry.lg{min-height:56px}
+.retry:disabled,.retry.is-load{background:var(--surfaceSunk);color:var(--inkMuted);box-shadow:none;transform:none;cursor:default}
+.retry .spin{animation:rspin 1s linear infinite}
+@keyframes rspin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.retry,.retry .spin{transition:none;animation:none}.retry:active{transform:none}}
+body.bare .retry .spin{animation:none}
+/* кнопка «Повторить» на экране Paddy без сети — тот же компонент: иконка 20 px */
+.sbn.net .pill .i{width:20px;height:20px}
+.pill.cta:disabled{box-shadow:none}
+
+/* ===== лист спецификации ===== */
+.spec{padding-top:4px;padding-bottom:44px}
+.spec .sh{font:700 12px/14px var(--ft);letter-spacing:1.44px;text-transform:uppercase;color:var(--inkMuted);margin:20px 0 8px}
+.spec .sh:first-child{margin-top:4px}
+.sgrid{align-items:start;display:grid;grid-template-columns:1fr 1fr;gap:12px 12px}
+.sgrid>div{display:flex;flex-direction:column;gap:6px;min-width:0}
+.sgrid .sl{font:500 13px/18px var(--ft);color:var(--inkMuted)}
+.sgrid .retry{width:100%}
+.spec .card{background:var(--surface);border-radius:var(--r-md);padding:4px 16px;box-shadow:var(--shadowCard)}
+.dark .spec .card{box-shadow:0 0 0 1px var(--line)}
+.skv{display:flex;gap:12px;justify-content:space-between;align-items:flex-start;padding:9px 0;border-top:1px solid var(--line);font:400 14px/20px var(--ft)}
+.skv:first-child{border-top:0}
+.skv span{color:var(--inkMuted);flex:none;max-width:42%}
+.skv b{font-weight:700;text-align:right;color:var(--ink)}
+.swc{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:-1px;margin-right:6px;border:1.5px solid var(--lineStrong)}
+.suse{display:flex;flex-wrap:wrap;gap:6px}
+.suse span{padding:6px 12px;border-radius:999px;background:var(--surfaceSunk);color:var(--ink);font:500 13px/18px var(--ft)}
+.slang{display:flex;flex-wrap:wrap;gap:8px}
+.slang .retry{padding:12px 16px}
+.slang .retry i{font-style:normal;font-weight:500;opacity:1;margin-left:2px;font-size:12px;color:var(--onBrand)}
+
+/* ===== таб-бар: активная обычная вкладка — КРУГЛАЯ mango-заливка вокруг иконки (решение Мурата 26.10) =====
+   Овал (.tabs.old) остаётся только для сравнения. Кнопка Paddy (.tab.pdx, D1) не меняется: пилюля 64×48. */
+.tabs:not(.old) .tab:not(.pdx){height:60px;flex:1 1 0;gap:2px}
+.tabs:not(.old) .tab:not(.pdx) .i{width:40px;height:40px;padding:9px;border-radius:50%;box-sizing:border-box;transition:background-color .18s ease}
+.tabs:not(.old) .tab.on:not(.pdx){background:none;color:var(--ink);flex:1 1 0}
+.tabs:not(.old) .tab.on:not(.pdx) .i{background:var(--brandMango);color:var(--onBrand)}
+@media (prefers-reduced-motion:reduce){.tabs:not(.old) .tab:not(.pdx) .i{transition:none}}
+
+/* ===== лист сравнения таб-бара ===== */
+.tcmp{padding-bottom:44px}
+.tcmp .sh{font:700 12px/14px var(--ft);letter-spacing:1.44px;text-transform:uppercase;color:var(--inkMuted);margin:16px 0 8px}
+.tcmp .sh:first-child{margin-top:4px}
+.tcmp .tabs{margin:0 0 4px}
+.tcmp .w340{width:340px;max-width:100%}
+.tcmp .cap{font:500 13px/18px var(--ft);color:var(--inkMuted);margin:2px 0 10px}
+
+/* ===== таб-бар «стекло» (вариант .tabs.glass; утверждённый круг mango остаётся по умолчанию) =====
+   Стекло = только размытие фона (backdrop-filter) + тонкая светлая кромка (border/outline). Теней и градиентов нет.
+   Бар — полупрозрачная подложка в ::before (а не на самом nav), чтобы линза активной вкладки была ЕГО СОСЕДОМ в стеке и тоже
+   видела контент под баром (backdrop-filter образует «корень фона» — вложенный фильтр внутри другого фильтра ничего бы не видел). */
+:root{--gA:72%;--gBlur:22px;--barRim:rgba(36,18,58,.12);--lensRim:rgba(36,18,58,.14);--lensArc:rgba(255,255,255,.95);--lensBr:1.12;--lensRing:rgba(255,166,43,.20);--gIcon:var(--ink)}
+.dark{--gA:80%;--barRim:rgba(255,255,255,.18);--lensRim:rgba(255,255,255,.35);--lensArc:rgba(255,255,255,.6);--lensBr:1.06;--lensRing:rgba(255,166,43,.20);--gIcon:var(--brandMango)}
+.tabs.glass{position:absolute;left:16px;right:16px;bottom:28px;margin:0;z-index:20;isolation:isolate;background:none;box-shadow:none}
+.dark .tabs.glass{box-shadow:none}
+.tabs.glass::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:999px;box-sizing:border-box;border:1px solid var(--barRim);
+ background:color-mix(in srgb,var(--tabBar) var(--gA),transparent);-webkit-backdrop-filter:blur(var(--gBlur)) saturate(1.4);backdrop-filter:blur(var(--gBlur)) saturate(1.4)}
+.tabs.glass .tab:not(.pdx){position:relative;color:var(--ink);background:none}
+.dark .tabs.glass .tab:not(.pdx){color:var(--ink)}
+.tabs.glass .tab:not(.pdx) .i{position:relative;z-index:1;width:44px;height:44px;padding:11px;border-radius:0;background:none;color:var(--ink);transform-origin:50% 50%;transition:transform .18s cubic-bezier(.34,1.56,.64,1)}
+.tabs.glass .tab.on:not(.pdx) .i{color:var(--gIcon);background:none}
+/* линза: круг 44 px, размытие + осветление, кромка 1 px, внутреннее кольцо mango ≈20 % */
+.tabs.glass .tab:not(.pdx)::before{content:"";position:absolute;left:50%;top:0;width:44px;height:44px;margin-left:-22px;border-radius:50%;box-sizing:border-box;
+ border:1px solid var(--lensRim);outline:3px solid var(--lensRing);outline-offset:-5px;
+ -webkit-backdrop-filter:blur(3px) brightness(var(--lensBr)) saturate(1.3);backdrop-filter:blur(3px) brightness(var(--lensBr)) saturate(1.3);
+ opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .18s cubic-bezier(.34,1.56,.64,1),backdrop-filter .18s ease}
+/* тонкая светлая дуга-блик сверху линзы (без градиента: верхняя граница круга) */
+.tabs.glass .tab:not(.pdx)::after{content:"";position:absolute;left:50%;top:4px;width:36px;height:36px;margin-left:-18px;border-radius:50%;box-sizing:border-box;
+ border:1.5px solid transparent;border-top-color:var(--lensArc);transform:rotate(-24deg) scale(.72);opacity:0;pointer-events:none;transition:opacity .18s ease,transform .18s cubic-bezier(.34,1.56,.64,1)}
+.tabs.glass .tab.on:not(.pdx)::before,.tabs.glass .tab.is-press:not(.pdx)::before,.tabs.glass .tab:not(.pdx):active::before{opacity:1;transform:scale(1)}
+.tabs.glass .tab.on:not(.pdx)::after,.tabs.glass .tab.is-press:not(.pdx)::after,.tabs.glass .tab:not(.pdx):active::after{opacity:1;transform:rotate(-24deg) scale(1)}
+/* нажатие, как в WhatsApp: линза 1,12× и ярче, пружина 180 мс; сама вкладка не сжимается */
+.tabs.glass .tab:not(.pdx):active,.tabs.glass .tab.is-press:not(.pdx){transform:none}
+.tabs.glass .tab:not(.pdx):active::before,.tabs.glass .tab.is-press:not(.pdx)::before{transform:scale(1.12);-webkit-backdrop-filter:blur(3px) brightness(calc(var(--lensBr) + .12)) saturate(1.4);backdrop-filter:blur(3px) brightness(calc(var(--lensBr) + .12)) saturate(1.4)}
+.tabs.glass .tab:not(.pdx):active::after,.tabs.glass .tab.is-press:not(.pdx)::after{transform:rotate(-24deg) scale(1.12)}
+.tabs.glass .tab:not(.pdx):active .i,.tabs.glass .tab.is-press:not(.pdx) .i{transform:scale(1.12)}
+.tabs.glass .tab:not(.pdx) span{position:relative;z-index:1}
+@media (prefers-reduced-motion:reduce){.tabs.glass .tab:not(.pdx)::before,.tabs.glass .tab:not(.pdx)::after,.tabs.glass .tab:not(.pdx) .i{transition:none}
+ .tabs.glass .tab:not(.pdx):active::before,.tabs.glass .tab:not(.pdx):active::after,.tabs.glass .tab:not(.pdx):active .i{transform:none}.tabs.glass .tab:not(.pdx):active::after{transform:rotate(-24deg)}}
+/* контент уходит под бар */
+
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.tabs.glass::before{background:var(--tabBar)}}
+
+/* ===== лист сравнения: «круг mango» и «стекло» поверх пёстрого контента ===== */
+.tgbox{position:relative;height:148px;border-radius:var(--r-lg);overflow:hidden;background:var(--bg);margin:0 0 6px;border:1px solid var(--line)}
+.tgbox .tabs,.tgbox .tabs.glass{position:absolute;left:12px;right:12px;bottom:12px;margin:0}
+.tgbox .tabs:not(.glass){z-index:20}
+.tgbox i.b{position:absolute;display:block;border-radius:14px}
+.tgbox i.c{background:var(--brandCoral)}.tgbox i.m{background:var(--brandMango)}.tgbox i.n{background:var(--brandMint)}.tgbox i.k{background:var(--ink)}.tgbox i.s{background:var(--surface);border:1px solid var(--line)}.tgbox i.t{background:var(--tintMango)}
+.tgbox i.o{border-radius:50%}
+.tgbox .tx{position:absolute;font:800 28px/32px var(--fd);color:var(--ink);white-space:nowrap}
+
+/* ===== таб-бар «стекло»: размеры v2 (по замечаниям Мурата к TestFlight 101, 26.10) =====
+   Капсула 72 pt, поля 12 (W<340: 8), внутренний отступ 14, ячейки без зазора = (W − 2·поле − 2·отступ − 64)/4, Paddy D1 64×48 по центру.
+   По вертикали: 6 · линза 44 · подпись 14 · 8. Подпись Golos Text 600, 12/14 (на ширине < 375 pt — 11/14), без переноса.
+   Низ: bottom = max(12, safe − 14). Все числа — в TABBAR-SPEC.md. */
+.app{container-type:inline-size}
+.tabs.glass{--tbM:12px;--tbB:20px;--tbP:14px;--tbF:12px;left:var(--tbM);right:var(--tbM);bottom:var(--tbB);height:72px;padding:0 var(--tbP);gap:0;justify-content:flex-start;align-items:stretch;box-sizing:border-box}
+@container (max-width:374.98px){.tabs.glass{--tbF:11px}}
+@container (max-width:339.98px){.tabs.glass{--tbM:8px}}
+.tabs.glass .tab:not(.pdx){flex:1 1 0;min-width:0;height:72px;padding:6px 0 0;gap:0;justify-content:flex-start;box-sizing:border-box}
+.tabs.glass .tab:not(.pdx) .i{flex:none}
+.tabs.glass .tab:not(.pdx) span{display:block;max-width:none;overflow:visible;height:14px;font:600 var(--tbF)/14px var(--ft);letter-spacing:0;white-space:nowrap;text-align:center}
+.tabs.glass .tab:not(.pdx)::before{top:6px}
+.tabs.glass .tab:not(.pdx)::after{top:10px}
+.tabs.glass .tab.pdx{flex:0 0 64px;width:64px;min-width:64px;max-width:64px;height:48px;align-self:center}
+.scr.gl{padding-bottom:108px}
+/* лист «Таб-бар: размеры» */
+.tbann{position:absolute;inset:0;z-index:30;pointer-events:none}
+.tbann svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.tbann .ch{position:absolute;height:18px;padding:0 6px;border-radius:9px;background:#24123A;color:#fff;font:700 11px/18px var(--ft);white-space:nowrap;transform:translate(-50%,0);border:1px solid #FFA62B}
+.dark .tbann .ch{background:#FFF;color:#24123A;border-color:#FF5E5B}
+.hind{position:absolute;left:50%;bottom:8px;width:134px;height:5px;margin-left:-67px;border-radius:3px;background:var(--ink);opacity:.9;z-index:25;pointer-events:none}
+.tbsh .tbw{position:relative;container-type:inline-size;height:112px;border-radius:var(--r-lg);overflow:hidden;background:var(--bg);border:1px solid var(--line);flex:none}
+.tbsh .tbw .tabs.glass{--tbB:20px;bottom:20px}
+.tbsh .tbfit{transform-origin:0 0;margin:0 0 8px}
+.tbsh .tbw i.b{position:absolute;display:block;border-radius:14px}
+.tbsh .tbw i.c{background:var(--brandCoral)}.tbsh .tbw i.m{background:var(--brandMango)}.tbsh .tbw i.n{background:var(--brandMint)}.tbsh .tbw i.k{background:var(--ink)}
+.tbsh .wl{font:700 12px/14px var(--ft);color:var(--inkMuted);margin:4px 0 4px}
+.tbsh table{width:100%;border-collapse:collapse;font:500 12px/16px var(--ft);color:var(--ink);font-variant-numeric:tabular-nums}
+.tbsh th{font:700 11px/14px var(--ft);color:var(--inkMuted);text-align:right;padding:4px 3px;border-bottom:1px solid var(--lineStrong)}
+.tbsh th:first-child,.tbsh td:first-child{text-align:left}
+.tbsh td{padding:4px 3px;text-align:right;border-top:1px solid var(--line)}
+.tbsh td.bad{color:var(--danger,#B3261E);font-weight:700}
+.tbsh td.ok{font-weight:700}

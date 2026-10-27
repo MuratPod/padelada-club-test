@@ -1,0 +1,62 @@
+/* ===== chats-pinned-paddy-v1 ===== */
+.chdr{padding:8px 16px 8px;gap:8px;min-height:64px}
+.chdr .ttl h1{font:800 28px/32px var(--fd)}
+.cmh{height:48px;flex:none;display:flex;align-items:center;justify-content:flex-start;overflow:visible;margin-left:-4px;
+  width:calc(var(--p,0)*52px);opacity:var(--p,0);pointer-events:none;margin-right:calc(var(--p,0)*-4px)}
+.cmh .cmf{flex:none;margin-left:2px}
+.chdr .cmh{min-width:0}
+.cmf{position:relative;display:block}
+.cmf .pe{display:block}
+.cdot{position:absolute;top:0;right:-2px;width:12px;height:12px;border-radius:50%;background:var(--inkAccent);border:2px solid var(--bg);box-sizing:border-box}
+/* закреплённый Paddy */
+.cpin{--fh:160px;--fs:104px;flex:none;position:relative;display:flex;justify-content:center;padding:0 16px}
+.cpb{display:block;position:relative;width:100%;color:var(--ink);text-align:center;min-height:48px}
+.cfull{display:flex;flex-direction:column;align-items:center;gap:0;padding:0 0 12px}
+.cpf{position:relative;display:block;width:var(--fs);height:var(--fs)}
+.cpf .pe{width:100%!important;height:100%!important;display:block}
+.cpl{display:flex;align-items:center;justify-content:center;gap:4px;margin-top:4px}
+.cpn{font:800 16px/20px var(--fd);color:var(--ink)}
+.cpn.sm{font:700 15px/22px var(--ft)}
+.cpi{display:inline-flex;color:var(--inkMuted)}
+.cpi svg{width:14px;height:14px}
+.cpv{display:block;max-width:100%;font:400 14px/20px var(--ft);color:var(--inkMuted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cpin.unr .cpv{color:var(--ink);font-weight:600}
+.cpf .bdg.cb{position:absolute;top:4px;right:-12px;border:2px solid var(--bg);box-sizing:content-box;min-width:20px;height:20px;line-height:20px;padding:0 3px;border-radius:12px;font-size:13px}
+.cpin.unr .cpf .pe{transform-origin:50% 100%;animation:csw 2.4s ease-in-out infinite}
+@keyframes csw{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@media (prefers-reduced-motion:reduce){.cpin.unr .cpf .pe{animation:none}}
+.cmin{display:none}
+/* вариант 1: закреплён сверху, сжимается в полоску 56 */
+.cpin.v1{height:calc(var(--fh) - (var(--fh) - 56px)*var(--p,0));overflow:hidden;background:var(--bg);align-items:flex-start;z-index:5}
+.cpin.v1::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--line);opacity:var(--p,0)}
+.cpin.v1 .cpb{height:100%}
+.cpin.v1 .cfull{position:absolute;left:0;right:0;top:0;transform-origin:50% 0;transform:scale(calc(1 - var(--p,0)*.35));opacity:calc(1 - var(--p,0)*3);pointer-events:none}
+.cpin.v1 .cmin{display:flex;position:absolute;left:0;right:0;top:0;height:56px;align-items:center;justify-content:center;gap:8px;opacity:calc(var(--p,0)*2.5 - 1)}
+.cpin.v1 .cmin .cmf .pe{display:block}
+.cpin.v1 .cmin .cdot{right:-4px}
+.cpin.v1 .cpb{pointer-events:auto}
+.cpin.v1.emp .cfull{padding-bottom:12px}
+/* варианты 2 и 3: Paddy едет вместе со списком */
+.clist.cl2,.clist.cl3,.clist.cl1{gap:0}
+.clist.cl2 .cpin,.clist.cl3 .cpin{margin:0 -16px;width:calc(100% + 32px);flex:none}
+.clx{display:flex;flex-direction:column;gap:8px}
+.clist{padding-top:0;padding-bottom:calc(var(--tbB,20px) + 72px + 16px)}
+.clist.cl1{padding-top:4px}
+/* пусто */
+.cemp{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding:16px 24px 0}
+.cei{width:64px;height:64px;border-radius:20px;background:var(--surfaceSunk);color:var(--inkMuted);display:flex;align-items:center;justify-content:center}
+.cemp h2{font:800 20px/24px var(--fd);color:var(--ink)}
+.cemp p{font:400 15px/22px var(--ft);color:var(--inkMuted);max-width:300px}
+.cemp .pill{margin-top:8px}
+/* iPhone SE */
+.dse .cpin{--fh:132px;--fs:80px}
+.dse .cfull{padding-bottom:8px}
+.dse .chdr{min-height:60px;padding-top:4px;padding-bottom:4px}
+.dse .cpl{margin-top:0}
+
+/* pull-down: резиновый оттяг вниз, фигура слегка вытягивается; пружина возврата */
+.clist.pull>*{transform:translateY(44px)}
+.clist.pull .cpf{transform:scale(1.06);transform-origin:50% 100%}
+@keyframes cspr{0%{transform:translateY(44px)}40%{transform:translateY(-6px)}70%{transform:translateY(2px)}100%{transform:translateY(0)}}
+.clist.spring>*{animation:cspr .72s cubic-bezier(.2,.9,.3,1) both}
+@media (prefers-reduced-motion:reduce){.clist.spring>*{animation:none}}
