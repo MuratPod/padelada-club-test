@@ -2881,7 +2881,7 @@ function cDemo(){
  return `<div class="pdemo" role="group" aria-label="Демо"><div class="sg">${b(v==='1','cvar:1','1')}${b(v==='2','cvar:2','2')}${b(v==='3','cvar:3','3')}</div><div class="sg">${b(!S.cv.unread,'cun:0','Прочитано')}${b(S.cv.unread,'cun:1','Непрочитано')}</div></div>`}
 function cAfter(){
  const sc=document.getElementById('cscr');if(!sc)return;
- if(S.cv.scroll){sc.scrollTop=S.cv.scroll}
+ sc.scrollTop=S.cv.scroll||0;
  cUpd();
  if(!sc._cb){sc._cb=1;sc.addEventListener('scroll',()=>{S.cv.scroll=sc.scrollTop;cUpd()},{passive:true})}
 }
