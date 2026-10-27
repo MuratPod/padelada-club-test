@@ -17,8 +17,6 @@
 .cpl{display:flex;align-items:center;justify-content:center;gap:4px;margin-top:4px}
 .cpn{font:800 16px/20px var(--fd);color:var(--ink)}
 .cpn.sm{font:700 15px/22px var(--ft)}
-.cpi{display:inline-flex;color:var(--inkMuted)}
-.cpi svg{width:14px;height:14px}
 .cpv{display:block;max-width:100%;font:400 14px/20px var(--ft);color:var(--inkMuted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cpin.unr .cpv{color:var(--ink);font-weight:600}
 .cpf .bdg.cb{position:absolute;top:4px;right:-12px;border:2px solid var(--bg);box-sizing:content-box;min-width:20px;height:20px;line-height:20px;padding:0 3px;border-radius:12px;font-size:13px}

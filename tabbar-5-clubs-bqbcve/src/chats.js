@@ -2,7 +2,6 @@
 const CT={
  prv_u:['Queda 1 hueco hoy a las 19:00','Queda 1 lloc avui a les 19:00','1 spot left today at 7:00 pm','Сегодня в 19:00 освободилось место','Сьогодні о 19:00 звільнилося місце'],
  prv_r:['Hecho: estás apuntado a las 19:00','Fet: estàs apuntat a les 19:00','Done: you’re signed up for 7:00 pm','Готово: вы записаны на 19:00','Готово: ви записані на 19:00'],
- pin_a:['Fijado','Fixat','Pinned','Закреплён','Закріплений'],
  new_a:['1 mensaje nuevo','1 missatge nou','1 new message','1 новое сообщение','1 нове повідомлення'],
  open_a:['Abrir chat con Paddy','Obrir xat amb Paddy','Open chat with Paddy','Открыть чат с Paddy','Відкрити чат із Paddy'],
  e_t:['Aún no tienes chats','Encara no tens xats','No chats yet','Пока нет чатов','Ще немає чатів'],
@@ -21,11 +20,11 @@ function cOnSet(o){
 const cDot=()=>`<span class="cdot" aria-hidden="true"></span>`;
 function cFull(){
  const u=S.cv.unread;
- return `<span class="cfull"><span class="cpf">${emoSvg(u?'joy':'hello',104,'')}${u?`<span class="bdg cb" aria-hidden="true">1</span>`:''}</span><span class="cpl"><b class="cpn">Paddy</b><span class="cpi" role="img" aria-label="${esc(cpt('pin_a'))}">${ic('pin','i14')}</span></span>${S.cv.empty?'':`<span class="cpv">${esc(cpt(u?'prv_u':'prv_r'))}</span>`}</span>`}
-function cMini(){const u=S.cv.unread;return `<span class="cmin"><span class="cmf">${emoSvg('hello',40,'')}${u?cDot():''}</span><b class="cpn sm">Paddy</b><span class="cpi" role="img" aria-label="${esc(cpt('pin_a'))}">${ic('pin','i14')}</span></span>`}
+ return `<span class="cfull"><span class="cpf">${emoSvg(u?'joy':'hello',104,'')}${u?`<span class="bdg cb" aria-hidden="true">1</span>`:''}</span><span class="cpl"><b class="cpn">Paddy</b></span>${S.cv.empty?'':`<span class="cpv">${esc(cpt(u?'prv_u':'prv_r'))}</span>`}</span>`}
+function cMini(){const u=S.cv.unread;return `<span class="cmin"><span class="cmf">${emoSvg('hello',40,'')}${u?cDot():''}</span><b class="cpn sm">Paddy</b></span>`}
 function cPin(){
  const v=S.cv.v,u=S.cv.unread;
- const al=`Paddy, ${cpt('pin_a')}${u?', '+cpt('new_a'):''}`;
+ const al=`Paddy${u?', '+cpt('new_a'):''}`;
  const btn=`<button class="cpb" data-act="go:40:chat" aria-label="${esc(al)}">${cFull()}${v==='1'?cMini():''}</button>`;
  return `<div class="cpin v${v}${u?' unr':''}${S.cv.empty?' emp':''}">${btn}</div>`}
 function cRows(){
