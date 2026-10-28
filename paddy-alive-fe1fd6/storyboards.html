@@ -1,0 +1,26 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>Paddy alive v1 — раскадровки</title>
+<style>body{margin:0;background:#f6ece5;color:#24123A;font:15px/1.4 -apple-system,"Segoe UI",Roboto,sans-serif;padding:20px 24px}
+h1{margin:0 0 4px;font-size:22px}p.l{color:#6b5a7c;margin:0 0 18px;max-width:950px}
+section{margin-bottom:26px}h2{font-size:17px;margin:0 0 2px}.meta{color:#6b5a7c;font-size:13px;margin-bottom:8px;max-width:1200px}
+.sb{display:inline-block;border-radius:14px;overflow:hidden;border:1px solid #e8d9d0}.row{display:flex}.row.l{background:#FFF1EA}.row.d{background:#0A1124;color:#FFF1EA}
+.c{width:200px;text-align:center;padding:4px 0 2px}.c b{display:block;font:11px ui-monospace,monospace;opacity:.65;font-weight:400}
+.gif{display:block;margin:6px 0;border-radius:12px;border:1px solid #e8d9d0;width:480px}a{color:#c03237}nav a{margin-right:12px}</style></head><body>
+<h1>Paddy alive v1 — раскадровки</h1>
+<p class="l">8 кадров на анимацию, светлая и тёмная тема. Кадр 200 px = фигура 104 pt примерно ×1,9 (вся сцена 400×400, как в приложении). Кадры рендерятся теми же частями SVG, что и интерактивный прототип. <a href="index.html">← к прототипу</a></p>
+<nav id="nav"></nav><div id="out"></div>
+<script src="src/paddy-alive.js"></script>
+<script>
+const P=PaddyAlive,N=8;
+const META={wave:['Привет-взмах','Покой. Вес 2, не чаще раза в 30 с.',2.6],smile:['Улыбка','Покой. Вес 3, не чаще раза в 12 с. Он же — «готово» после выхода из занят.',1.9],look:['Осматривается','Покой. Вес 4, не чаще раза в 8 с.',3.8],'padel-toss':['Подбросил мяч','Покой. Вес 1,2, не чаще раза в 25 с.',3.5],'padel-serve':['Подача и удар','Покой. Вес 0,8, не чаще раза в 40 с.',3.3],think:['Думает','Занят: запрос ушёл, ответа ещё нет.',4],search:['Ищет игру','Занят: поиск игры/клубов.',5.2],flip:['Листает','Занят: читает список/результаты.',5],answer:['Отвечает','Занят: пишет/говорит ответ.',4],joy:['Радуется (непрочитанное)','Удержание, пока есть непрочитанное.',3]};
+const out=document.getElementById('out'),nav=document.getElementById('nav');
+for(const [k,[ti,tr,D]] of Object.entries(META)){
+  const sec=document.createElement('section');sec.id='s-'+k;
+  sec.innerHTML=`<h2>${ti} <small style="font-weight:400;color:#6b5a7c">· ${k} · ${P.ANIMS[k].dur?D+' с':'цикл, показано '+D+' с'}</small></h2><div class="meta">${tr}</div><img class="gif" src="video/gif/${k}.gif" alt="${k}" loading="lazy"><div class="sb" id="sb-${k}"></div>`;
+  out.appendChild(sec);nav.insertAdjacentHTML('beforeend',`<a href="#s-${k}">${ti}</a>`);
+  const sb=sec.querySelector('.sb');
+  for(const dark of [0,1]){const row=document.createElement('div');row.className='row '+(dark?'d':'l');
+    for(let i=0;i<N;i++){const t=D*i/(N-1)*0.999;const c=document.createElement('div');c.className='c';const h=document.createElement('div');row.appendChild(c);c.appendChild(h);
+      new P.Rig(h,{size:200,dark:!!dark}).apply(P.frameAt(k,t));const b=document.createElement('b');b.textContent='t = '+t.toFixed(2)+' с';c.appendChild(b);}
+    sb.appendChild(row);}
+}
+</script></body></html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paddy alive v1 — живая анимация Paddy в «Чатах»</title>
+<style>
+:root{--bg:#FFF1EA;--ink:#24123A;--coral:#FF5E5B;--card:#fff;--mut:#6b5a7c;--line:#e8d9d0}
+*{box-sizing:border-box}body{margin:0;font:15px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#f6ece5;color:var(--ink)}
+header{padding:18px 24px 8px}h1{margin:0;font-size:22px}header p{margin:4px 0 0;color:var(--mut);max-width:900px}
+main{display:grid;grid-template-columns:minmax(0,680px) minmax(300px,1fr);gap:20px;padding:12px 24px 40px;max-width:1280px}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.stage{display:flex;gap:0;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+.panel{flex:1;display:flex;flex-direction:column;align-items:center;padding:14px 8px 10px}
+.panel.l{background:#FFF1EA}.panel.d{background:#0A1124;color:#FFF1EA}
+.panel .fig{width:312px;height:312px}
+.panel .cap{font:800 16px/20px Montserrat,-apple-system,sans-serif;margin-top:2px}
+.panel small{opacity:.7;font-size:12px}
+.real{display:flex;gap:0;margin-top:12px;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.real .panel{padding:10px;flex-direction:row;justify-content:space-around;gap:20px;align-items:flex-end}
+.real .u{display:flex;flex-direction:column;align-items:center}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:12px}
+.card h3{margin:0 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut)}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+button{font:600 14px inherit;font-family:inherit;border:1.5px solid var(--ink);background:#fff;color:var(--ink);padding:8px 12px;border-radius:12px;cursor:pointer}
+button:hover{background:#ffe9e0}button.on{background:var(--ink);color:#fff}button.busy.on{background:var(--coral);border-color:var(--coral)}
+button small{display:block;font-weight:400;font-size:11px;opacity:.7}
+label{display:flex;align-items:center;gap:8px;margin:6px 0}
+.log{font:12px/1.5 ui-monospace,Menlo,monospace;background:#24123A;color:#FFF1EA;border-radius:10px;padding:8px 10px;height:130px;overflow:auto}
+.status{font:600 13px ui-monospace,Menlo,monospace;color:var(--coral)}
+#bar{height:5px;background:#ecd9cf;border-radius:3px;margin-top:8px}#bar i{display:block;height:100%;background:var(--coral);width:0;border-radius:3px}
+table{border-collapse:collapse;width:100%;font-size:13px}td,th{border-bottom:1px solid var(--line);padding:4px 6px;text-align:left}
+a{color:#c03237}
+body.clip header,body.clip main>.side,body.clip .real{display:none}body.clip main{display:block;padding:0}body.clip{background:#f6ece5}
+#overlay{display:none}
+body.clip #overlay{display:block;padding:10px 16px;font-weight:800;font-size:22px}body.clip #overlay span{font-weight:500;font-size:14px;color:var(--mut);margin-left:10px}
+</style></head><body>
+<header><h1>Paddy alive v1 — живая анимация Paddy в «Чатах»</h1>
+<p>Те же части, что в приложении (parts.tsx / scene.tsx / RacketStatic.tsx), 400×400, размер фигуры 104 pt (SE 80 pt). Без новых персонажей, без фильтров. Жесты в покое выбираются случайно с паузой 3–8 с; «Занят» включает состояние-цикл с плавными переходами.</p></header>
+<div id="overlay"></div>
+<main>
+<section>
+  <div class="stage" id="stage">
+    <div class="panel l"><div class="fig" id="figL"></div><div class="cap">Paddy</div><small>светлая, 104 pt ×3</small></div>
+    <div class="panel d"><div class="fig" id="figD"></div><div class="cap">Paddy</div><small>тёмная (стикер-обводка), 104 pt ×3</small></div>
+  </div>
+  <div class="real">
+    <div class="panel l"><div class="u"><div id="r104L"></div><small>104 pt (iPhone 17)</small></div><div class="u"><div id="r80L"></div><small>80 pt (SE)</small></div></div>
+    <div class="panel d"><div class="u"><div id="r104D"></div><small>104 pt</small></div><div class="u"><div id="r80D"></div><small>80 pt</small></div></div>
+  </div>
+  <div id="bar"><i></i></div>
+</section>
+<section class="side">
+  <div class="card"><h3>Режим</h3>
+    <div class="btns"><button id="bIdle" class="on">Покой (авто-жесты)</button><button id="bBusy" class="busy">Занят</button><button id="bJoy">Непрочитанное (joy)</button></div>
+    <label><input type="checkbox" id="auto" checked> Авто-режим: случайные жесты через 3–8 с</label>
+    <label><input type="checkbox" id="reduce"> Reduce Motion (статичная поза + редкое моргание)</label>
+    <label>Скорость <input type="range" id="speed" min="0.25" max="2" step="0.25" value="1"> <span id="spv">1×</span></label>
+    <div class="status" id="status"></div>
+  </div>
+  <div class="card"><h3>Покой — показать жест сейчас</h3>
+    <div class="btns" id="idleBtns"></div></div>
+  <div class="card"><h3>Занят — состояния-циклы</h3>
+    <div class="btns" id="busyBtns"></div>
+    <p style="margin:8px 0 0;color:var(--mut);font-size:13px">Переключение между занятыми состояниями — кроссфейд 0,35 с; «Покой» — выход 0,5 с и «улыбка готово».</p></div>
+  <div class="card"><h3>Журнал планировщика</h3><div class="log" id="log"></div></div>
+  <div class="card"><h3>Материалы</h3>
+    <p style="margin:0">Раскадровки: <a href="storyboards.html">все анимации, светлая / тёмная</a> · Видео: <a href="video/paddy-alive-reel.mp4">общий ролик (mp4)</a>, <a href="video/paddy-alive-auto.mp4">авто-режим 42 с (mp4)</a> · GIF по каждой анимации — на странице раскадровок.</p></div>
+</section>
+</main>
+<script src="src/paddy-alive.js"></script>
+<script src="src/app.js"></script>
+</body></html>
