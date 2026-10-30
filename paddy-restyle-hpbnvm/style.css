@@ -137,3 +137,75 @@ table.cmp{border-collapse:collapse;width:100%;font:400 14px/20px Golos}table.cmp
 
 .pcard .ib{display:inline-block;vertical-align:3px;background:var(--coral);color:#fff;font:700 13px/24px Golos;height:24px;min-width:28px;border-radius:12px;text-align:center;padding:0 8px;margin-left:4px}
 .pcard .tx{right:170px}
+/* ===== v2: векторный Paddy ===== */
+.phone.se{width:375px;height:667px}
+.phone.se .hdr h1{font-size:30px}
+.phone.se .pblock{height:132px}
+.phone.se .pcard{height:132px}
+.phone.se .tab{height:64px;bottom:10px}
+.phone.se .home{display:none}
+.phone.se .sb{height:20px;padding:2px 10px 0 12px;font-size:14px}
+.phone.se .hdr{top:26px}.phone.se .scroll{top:88px}
+.figw{position:relative}
+.pav{border-radius:50%;overflow:hidden;flex:none;position:relative}
+.pav svg{width:100%;height:100%}
+.pring{border-radius:50%;background:conic-gradient(from 200deg,#FF5E5B,#FFA62B,#C6F06B,#3ECFA0,#FF5E5B);width:max-content}
+.pin{border-radius:50%;background:var(--bg)}
+.pblock.d4{justify-content:center;gap:0}
+.pblock.d4 .online{right:2px;bottom:2px}
+.pblock .pbadge{z-index:3}
+/* d2 */
+.pcard .court{position:absolute;inset:0;width:100%;height:100%}
+.pcard .cfig{position:absolute;right:6px;bottom:-10px;z-index:1}
+.pcard:after{z-index:1;background:linear-gradient(90deg,rgba(20,10,30,.55) 0%,rgba(20,10,30,.25) 45%,rgba(20,10,30,0) 62%)}
+.pcard .cfig{z-index:2}
+/* d3 */
+.gwrap{position:relative}
+.glens{position:absolute;inset:0;border-radius:50%;background:var(--glass);border:1px solid var(--glassLine);backdrop-filter:blur(18px) saturate(1.5);box-shadow:inset 0 2px 0 rgba(255,255,255,.75),inset 0 -10px 24px rgba(255,166,43,.12),0 10px 26px rgba(120,40,20,.12)}
+.dark .glens,.phone.dark .glens,.portrait.dark .glens{box-shadow:inset 0 1px 0 rgba(255,255,255,.18),inset 0 -10px 24px rgba(255,166,43,.10),0 10px 26px rgba(0,0,0,.45)}
+/* #840 шапка чата */
+.chdr8{position:absolute;top:58px;left:14px;right:14px;height:56px;display:flex;align-items:center;gap:8px}
+.chdr8 .cbtn{width:46px;height:46px;flex:none}
+.cap8{flex:1;min-width:0;height:56px;border-radius:28px;background:var(--glass);border:1px solid var(--glassLine);box-shadow:var(--shadow);backdrop-filter:blur(16px);display:flex;align-items:center;gap:9px;padding:0 10px 0 7px}
+.cap8 .ct{flex:1;min-width:0}.cap8 .nm{font:800 17px/20px Mont}.cap8 .st{font:400 13px/17px Golos;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ai{font:700 11px/18px Golos;letter-spacing:.5px;padding:0 7px;border-radius:9px;border:1.5px solid currentColor;color:var(--muted);flex:none}
+.ai.big{font-size:12px;line-height:20px;margin-top:10px;display:inline-block}
+.msgs8{position:absolute;top:126px;left:16px;right:16px;display:flex;flex-direction:column;gap:10px}
+.pill{height:50px;border-radius:25px;border:1.5px solid rgba(36,18,58,.35);display:grid;place-items:center;font:700 16px Mont;background:var(--glass)}
+.dark .pill{border-color:rgba(255,255,255,.25)}
+.hint{text-align:center;font:500 13px Golos;color:var(--muted);margin:4px 0}
+.bub8{max-width:86%;background:var(--surfaceSolid);border-radius:22px;padding:12px 16px;font:400 17px/24px Golos;box-shadow:var(--shadow)}
+.me8{align-self:flex-end;max-width:76%;background:#24123A;color:#fff;border-radius:22px;padding:12px 16px;font:400 17px/24px Golos}
+.dark .me8{background:#FF5E5B}
+.typing8{display:flex;align-items:center;gap:8px}
+.typing8 .dots{height:34px;padding:0 14px;border-radius:17px;background:var(--surfaceSolid);display:flex;gap:5px;align-items:center;box-shadow:var(--shadow)}
+.typing8 .dots i{width:7px;height:7px;border-radius:50%;background:var(--muted);opacity:.6}
+.typing8 .tl{font:500 13px Golos;color:var(--muted)}
+.comp8{position:absolute;left:12px;right:12px;bottom:30px;height:52px;display:flex;gap:8px;align-items:center}
+.comp8 .pl,.comp8 .mic{width:52px;height:52px;border-radius:26px;display:grid;place-items:center;background:var(--glass);border:1px solid var(--glassLine);flex:none}
+.comp8 .mic{background:#24123A;color:#fff}
+.comp8 .ph{flex:1;height:52px;border-radius:26px;background:var(--glass);border:1px solid var(--glassLine);font:400 17px/50px Golos;color:var(--muted);padding-left:18px}
+.phone.se .chdr8{top:26px}.phone.se .msgs8{top:92px}.phone.se .comp8{bottom:10px}
+.phone.se .bub8,.phone.se .me8{font-size:15px;line-height:21px;padding:10px 14px}
+/* #840 карточка */
+.top8{position:absolute;top:58px;left:16px;right:16px;display:flex;gap:10px}
+.ttl8{position:absolute;top:118px;left:20px;font:800 30px/36px Mont}
+.pc8{position:absolute;top:172px;left:16px;right:16px;height:400px;border-radius:30px;text-align:center;overflow:hidden;color:var(--ink)}
+.pc8.onwarm{color:#24123A}.pc8.onwarm .ai{color:#24123A;opacity:.7}
+.pc8.d2{color:#fff}.pc8.d2 .ai{color:#fff}
+.pc8 .c2{position:relative;height:220px;overflow:hidden}.pc8 .c2 .court{position:absolute;inset:0;width:100%;height:100%}.pc8 .c2 .cfig{position:absolute}
+.pc8.d2 .pn8{margin-top:12px}
+.pn8{font:800 32px/38px Mont;margin-top:18px}
+.pd8{font:400 17px/24px Golos;margin:8px 26px 0;opacity:.92}
+.tiles8{position:absolute;top:588px;left:16px;right:16px;display:flex;gap:10px}
+.tiles8 div{flex:1;height:84px;border-radius:20px;background:var(--surface);padding:12px 14px;box-shadow:var(--shadow)}
+.tiles8 small{display:block;font:500 14px Golos;color:var(--muted)}.tiles8 b{display:block;font:800 22px/34px Mont}.tiles8 b.s{font-size:17px}
+.btn8{position:absolute;left:16px;right:16px;height:58px;border-radius:29px;display:grid;place-items:center;font:800 18px Mont}
+.btn8.p{top:690px;background:#FF5E5B;color:#24123A;box-shadow:0 10px 24px rgba(255,94,91,.3)}
+.btn8.o{top:760px;border:1.5px solid rgba(36,18,58,.4)}.dark .btn8.o{border-color:rgba(255,255,255,.3)}
+.phone.se .top8{top:24px}.phone.se .ttl8{top:74px;font-size:24px}.phone.se .pc8{top:116px;height:318px}
+.phone.se .pc8 .c2{height:170px}.phone.se .pn8{font-size:26px;margin-top:10px}.phone.se .pd8{font-size:15px;line-height:21px}
+.phone.se .tiles8{top:446px}.phone.se .tiles8 div{height:70px;padding:8px 12px}.phone.se .tiles8 b{font-size:19px;line-height:28px}.phone.se .tiles8 b.s{font-size:15px}
+.phone.se .btn8{height:48px;font-size:16px}.phone.se .btn8.p{top:528px}.phone.se .btn8.o{top:586px}
+.tiles8 b.inf{font:700 34px/34px "DejaVu Sans",system-ui}
+.pc8{height:368px}.tiles8{top:556px}.btn8.p{top:658px}.btn8.o{top:728px}
