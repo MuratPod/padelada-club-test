@@ -42,3 +42,7 @@ Members-only (muro, jugador, cuenta, рейтинг, вход OTP): НЕ на с
 
 ## Убрано
 Plus/Max, цены, награды, «Club gratis», «para siempre», имена игроков, алгоритм рейтинга, люди на фото, «захвати комарку», плашка Maqueta/Ejemplo, noindex (снять только на проде).
+
+## Факт превью (1.11)
+/{,ca/,en/,ru/,uk/}index.html · /{lang}/comarca/baix-emporda/ + captain/ · /{lang}/app-only/ · /404.html · /.well-known/{apple-app-site-association,assetlinks.json}
+Hero CTA: «Encuentra tu comarca» → #comarcas; Descargar — шапка и #app. contestants_count — не показываем (решено).

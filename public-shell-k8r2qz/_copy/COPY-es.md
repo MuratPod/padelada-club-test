@@ -50,3 +50,7 @@ Esto está en la app. Descárgala para entrar. [App Store] [Google Play]
 
 
 Nota: no se muestra contestants_count («N compiten»); solo X/16 y «faltan N».
+
+## Решено (1.11)
+- Hero: «Tu pádel. Tu comarca. Tu club.»; CTA «Encuentra tu comarca».
+- Комарка: только «X de 16 jugadores» и «faltan N»; contestants_count нет; имён нет.

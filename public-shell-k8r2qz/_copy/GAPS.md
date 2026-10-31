@@ -18,3 +18,10 @@
 ## Сборка
 - site-club: SSG по slug + клиентский fetch статуса; 404 для null.
 - Префиксы языков; hreflang; noindex на превью.
+
+## Сделано ночью 1.11 (draft PR, club-test)
+- Комарка + captain на ca/en/ru/uk (?demo=empty|contest|active, X/16, faltan N, без contestants_count; active без Fundador).
+- Переключатель языка на комарке ведёт на ту же комарку (и сохраняет ?demo).
+- 404.html, app-only/ (заглушка «это в приложении») на 5 языках, .well-known/ AASA+assetlinks (копия из padelada/site/root; в проде нужны в КОРНЕ .club).
+## Осталось на утро
+- FAQ5 (Мурат). Вычитка ca/en/uk носителем. Hero/видео/фото/карта 42 — Design. Бэк #875 RPC. Хостинг без CF + снятие 301 — по «да».
