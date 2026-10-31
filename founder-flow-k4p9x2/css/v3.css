@@ -1,0 +1,116 @@
+/* Club Padelada v3 — дополнения к club.css / story.css */
+.v3-mark{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;flex:none;background:linear-gradient(150deg,var(--lvl),var(--lvl-edge));color:#14100f;font-weight:700;font-size:13px;letter-spacing:.02em}
+.v3-mark--xl{width:96px;height:96px;font-size:30px}
+.v3-mark--xl.is-captain{box-shadow:0 0 0 3px var(--surface),0 0 0 6px var(--gold)}
+@media (max-width:699px){.v3-mark--xl{width:72px;height:72px;font-size:23px}}
+.v3-ring{display:flex;align-items:center;justify-content:center;width:100%;height:100%;border-radius:50%;background:linear-gradient(150deg,var(--lvl),var(--lvl-edge));color:#14100f;font-weight:700;font-size:calc(var(--s)*.3);letter-spacing:.02em;position:relative}
+.v3-cardmark{letter-spacing:.02em}
+.crumbs svg{vertical-align:-2px}
+/* фото комарок и корты */
+.v3-courts-h{margin:56px 0 18px}.v3-courts-h h3{margin:0;font-size:clamp(26px,6vw,40px);line-height:1.08;letter-spacing:-.035em}
+.v3-gridwrap{margin-top:56px}
+.v3-ph{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;grid-auto-rows:clamp(150px,40vw,210px)}
+.v3-ph li{min-height:0}
+.v3-ph li:first-child{grid-column:span 2;grid-row:span 2}
+@media (min-width:900px){.v3-ph{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;grid-auto-rows:200px}.v3-ph li:nth-child(n+6){grid-column:span 2}}
+.v3-tile{position:relative;display:block;height:100%;border-radius:22px;overflow:hidden;color:#fff;text-decoration:none;background:#14161a;box-shadow:0 0 0 1px var(--border)}
+.v3-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.v3-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,9,11,0) 25%,rgba(8,9,11,.55) 62%,rgba(8,9,11,.92))}
+.v3-tile:focus-visible{outline:2px solid var(--accent,#FFA62B);outline-offset:3px}
+.v3-tile__t{position:absolute;left:16px;right:16px;bottom:14px;z-index:1;display:grid;gap:2px}
+.v3-tile__t b{font-size:clamp(17px,4.4vw,22px);letter-spacing:-.02em;line-height:1.1}
+.v3-tile__t span{font-size:13px;line-height:1.25;color:rgba(255,255,255,.92)}
+.v3-tile__t{text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.v3-courts{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.v3-courts li{border-radius:18px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 0 0 1px var(--border)}
+.v3-courts img{width:100%;height:100%;object-fit:cover;display:block}
+@media (min-width:700px){.v3-courts li{aspect-ratio:4/3}.v3-courts{gap:16px}}
+@media (prefers-reduced-motion:reduce){.v3-tile img{transition:none}}
+/* афиша */
+.st-af .st-tours{margin-top:8px}
+/* капитаны */
+.v3-caplines{list-style:none;margin:34px 0 0;padding:0;display:grid;gap:16px;max-width:760px}
+.v3-caplines li{display:grid;grid-template-columns:36px minmax(0,1fr);gap:16px;align-items:start;font-size:clamp(18px,4.4vw,23px);line-height:1.42}
+.v3-caplines__n{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold-text,var(--gold));font-weight:700;font-size:16px;box-shadow:inset 0 0 0 1.5px var(--gold);margin-top:-2px}
+.v3-capact{display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;margin-top:36px}
+/* комарка */
+.v3-in{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:center;padding:36px 40px}
+.v3-in .p{margin-top:10px}
+.v3-in .wall__act{margin:0}
+@media (max-width:759px){.v3-in{grid-template-columns:minmax(0,1fr);padding:26px 22px}}
+.v3-young,.v3-empty{max-width:760px}
+.v3-young .st-pend__n{font-size:clamp(24px,5.6vw,34px);margin-top:10px}
+.v3-empty .st-lead{margin-top:12px}.v3-empty .st-seats{margin-top:20px}
+.st-zhero:not(:has(.st-zhero__ph)) .st-zhero__glow{display:block}
+/* список комарок: заглушка без людей */
+.wall__act .btn,.wall__act .ghost{max-width:100%}
+
+/* ===== 26.10: плавность. Только мягкое появление (прозрачность + размытие), без сдвигов и масштабов ===== */
+/* 1. Заглушка (LQIP) под картинкой: крошечный размытый кадр, пока грузится настоящий */
+.lq{background-color:#14161a;background-image:var(--lq);background-size:cover;background-position:center}
+.lq[style]{background-image:var(--lq);background-size:cover;background-position:center}
+.phn--shot .phn__scr.lq,.wch__scr.lq{background-color:#0d0e10;background-image:var(--lq);background-size:cover}
+.st-hero--wide .st-hero__wm.lq{background-color:#000;background-image:var(--lq);background-size:100% var(--hw-h,100%);background-position:50% 0;background-repeat:no-repeat}
+@media (max-width:599px){.st-hero--wide .st-hero__wm.lq{background-image:var(--lqm,var(--lq))}}
+@media (min-width:900px){.st-hero--wide .st-hero__wm.lq{background-size:cover;background-position:center}}
+picture{display:contents}
+/* 2. Появление настоящей картинки */
+img.lz{transition:opacity .9s cubic-bezier(.22,.61,.36,1),filter 1s cubic-bezier(.22,.61,.36,1)}
+html.lzjs:not(.lz-all) img.lz:not(.is-in){opacity:0;filter:blur(14px)}
+html.lzjs .phn__scr img.lz:not(.is-in),html.lzjs .wch__scr img.lz:not(.is-in){filter:none}
+img.lz--hero{transition-duration:.45s,.5s}
+/* 3. Блоки страницы выплывают мягко: прозрачность + размытие, без сдвига */
+.r{transform:none;filter:blur(10px);transition:opacity 1s cubic-bezier(.22,.61,.36,1),filter 1s cubic-bezier(.22,.61,.36,1)}
+.r.in{transform:none;filter:none}
+.no-js .r{filter:none}
+.st-hero__l{animation-name:st-fade}
+@keyframes st-fade{from{opacity:0;filter:blur(10px)}to{opacity:1;filter:none}}
+/* Убрано: наклон/подъём карточек, приближение фото, дрейф свечения, покачивание стрелки */
+@media (hover:hover){.tile.lift:hover{transform:none}.cardbox:hover .pd-card{transform:none}.cardbox:hover .pd-card::after{background-position:inherit}}
+.page-glow>*,.page-glow::before,.page-glow::after{animation:none!important;will-change:auto}
+.st-hero__glow--brand i,.st-hero__glow--v1b i{animation:none!important}
+.st-hero__down svg{animation:none}
+.st-prof__glow{animation:none}
+.court.draw .ln,.court.draw .wall,.court.draw .net{animation:none;stroke-dasharray:none;stroke-dashoffset:0}
+.court.draw .pl{animation:none;opacity:1}
+.btn:active,.ghost:active,.link:active,.store-badge:active,.press:active{transform:none}
+/* 4. Нижний край первого экрана растворяется в фон страницы: слои первого экрана гасятся маской, шва нет */
+.st-hero--wide{background:transparent;--fd:220px}
+.st-hero__wm,.st-hero__ws,.st-hero__glow{-webkit-mask-image:linear-gradient(180deg,#000 0,#000 calc(100% - var(--fd)),rgba(0,0,0,.55) calc(100% - var(--fd)*.55),transparent 100%);mask-image:linear-gradient(180deg,#000 0,#000 calc(100% - var(--fd)),rgba(0,0,0,.55) calc(100% - var(--fd)*.55),transparent 100%)}
+.st-hero__glow--brand::after{display:none}
+@media (min-width:900px){
+  .st-hero--wide{--fd:320px}
+  .st-hero__ws{background:linear-gradient(90deg,#000 0,rgba(0,0,0,.85) 28%,rgba(0,0,0,.35) 52%,rgba(0,0,0,0) 66%),linear-gradient(180deg,rgba(0,0,0,.45) 0,rgba(0,0,0,0) 14%)}
+}
+/* Фото-шапки комарки и игрока: тоже гаснут маской вместо плотной заливки внизу */
+.st-zhero__ph{-webkit-mask-image:linear-gradient(180deg,#000 0,#000 35%,rgba(0,0,0,.5) 72%,transparent 100%);mask-image:linear-gradient(180deg,#000 0,#000 35%,rgba(0,0,0,.5) 72%,transparent 100%)}
+.st-zhero__shade{background:linear-gradient(180deg,rgba(var(--bg-rgb),.15) 0,rgba(var(--bg-rgb),.4) 40%,rgba(var(--bg-rgb),.55) 75%,rgba(var(--bg-rgb),0) 100%)}
+.st-phero__shade{background:linear-gradient(180deg,rgba(var(--bg-rgb),.2) 0,rgba(var(--bg-rgb),0) 100%)}
+/* 5. Режим «меньше движения»: без размытия, только короткое затухание */
+@media (prefers-reduced-motion:reduce){
+  img.lz,img.lz--hero{transition:opacity .25s linear;transition-duration:.25s}
+  html.lzjs img.lz:not(.is-in){filter:none}
+  .r{filter:none;transition:opacity .25s linear}
+  .st-hero__l{animation-name:st-fade-rm}
+  @keyframes st-fade-rm{from{opacity:0}to{opacity:1}}
+}
+
+/* ===== комарка: положение на карте и место в рейтинге ===== */
+.v3-zloc{display:grid;gap:22px;align-items:center;grid-template-columns:1fr}
+.v3-zloc__map{margin:0;width:min(100%,300px);opacity:0;filter:blur(8px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),filter 1s cubic-bezier(.22,.61,.36,1)}
+.v3-zloc__map.is-in{opacity:1;filter:none}
+.v3-zloc__map:empty{display:none}
+.zmap{display:block;width:100%;height:auto;overflow:visible}
+.zmap path{fill:var(--map-base);stroke:var(--bg);stroke-width:1.2;vector-effect:non-scaling-stroke}
+.zmap path.is-here{fill:var(--map-hot);filter:drop-shadow(0 0 10px color-mix(in srgb,var(--map-hot) 70%,transparent))}
+.v3-zloc__t .h3{margin:6px 0 14px}
+.v3-zloc__rank{margin:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;color:var(--muted);font-size:16px}
+.v3-zloc__v{font-size:clamp(26px,5vw,40px);line-height:1;color:var(--text);letter-spacing:-.03em;font-weight:700}
+@media (min-width:700px){.v3-zloc{grid-template-columns:minmax(220px,300px) 1fr;gap:56px}}
+@media (prefers-reduced-motion:reduce){.v3-zloc__map{filter:none;transition:opacity .25s linear}}
+html.no-js .v3-zloc__map{opacity:1;filter:none}
+/* Фото-шапка комарки: заглушка лежит под фото и гаснет той же маской, иначе внизу остаётся жёсткий край */
+.st-zhero.lq,.st-zhero.lq[style]{background:none}
+.st-zhero.lq::before{content:'';position:absolute;inset:0;z-index:-3;background:var(--lq) center/cover no-repeat;-webkit-mask-image:linear-gradient(180deg,#000 0,#000 35%,rgba(0,0,0,.5) 72%,transparent 100%);mask-image:linear-gradient(180deg,#000 0,#000 35%,rgba(0,0,0,.5) 72%,transparent 100%)}
+/* hero-кадр комарки — главный кандидат LCP: проявляется быстрее остальных */
+img.st-zhero__ph.lz{transition-duration:.45s,.5s}

@@ -1,0 +1,14 @@
+.fo{padding:72px 0 24px}.fo--cond{padding-top:24px;padding-bottom:72px}
+.fo__wrap{max-width:720px}.fo__wrap--c{text-align:center;display:flex;flex-direction:column;align-items:center}
+.fo__kick{margin:0 0 14px;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.fo h1{font-size:clamp(40px,9vw,68px);line-height:1;letter-spacing:-.045em;margin:0 0 20px;text-wrap:balance}
+.fo h2{font-size:clamp(26px,6vw,36px);letter-spacing:-.03em;margin:0 0 18px}
+.fo__status{margin:0 0 8px;font-weight:700;font-size:19px}.fo__lead{margin:0 0 28px;font-size:19px;line-height:1.5;color:var(--muted);text-wrap:pretty}
+.fo__count{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:22px 24px;margin:0 0 28px}
+.fo__count p{margin:0}.fo__num{display:flex;align-items:baseline;gap:10px}.fo__num b{font-size:56px;line-height:1;letter-spacing:-.04em}.fo__num span{font-size:20px;color:var(--muted)}
+.fo__bar{height:10px;border-radius:99px;background:var(--surface-2);overflow:hidden;margin:16px 0 12px}.fo__bar i{display:block;height:100%;border-radius:99px;background:var(--accent)}
+.fo__left{text-wrap:balance;color:var(--muted);font-size:15.5px}.fo .btn--lg{min-height:56px;padding:0 28px;font-size:17px}
+.fo__list{margin:0;padding-left:1.3em;display:grid;gap:14px;font-size:17px;line-height:1.5;text-wrap:pretty}
+.fo__small{margin:22px 0 0;color:var(--muted);font-size:15.5px;max-width:30em;text-wrap:pretty}
+.fo__back{margin-top:28px;color:var(--accent);font-weight:700;text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center}
+.fo__wrap--c .fo__lead{max-width:30em}

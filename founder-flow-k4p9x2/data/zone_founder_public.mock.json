@@ -1,0 +1,44 @@
+{
+  "empty": {
+    "status": "empty",
+    "members_count": 0,
+    "contestants_count": 0,
+    "has_captain": false,
+    "founded_at": null,
+    "slug": "baix-emporda",
+    "name": "Baix Empordà",
+    "country_code": "ES",
+    "members_needed": 16,
+    "members_left": 16,
+    "app_url": "https://padelada.club/comarca/baix-emporda/captain",
+    "conditions_url": "https://padelada.club/comarca/baix-emporda"
+  },
+  "contest": {
+    "status": "contest",
+    "members_count": 7,
+    "contestants_count": 2,
+    "has_captain": false,
+    "founded_at": null,
+    "slug": "baix-emporda",
+    "name": "Baix Empordà",
+    "country_code": "ES",
+    "members_needed": 16,
+    "members_left": 9,
+    "app_url": "https://padelada.club/comarca/baix-emporda/captain",
+    "conditions_url": "https://padelada.club/comarca/baix-emporda"
+  },
+  "active": {
+    "status": "active",
+    "members_count": 16,
+    "contestants_count": 1,
+    "has_captain": true,
+    "founded_at": "2026-09-14",
+    "slug": "baix-emporda",
+    "name": "Baix Empordà",
+    "country_code": "ES",
+    "members_needed": 16,
+    "members_left": 0,
+    "app_url": "https://padelada.club/comarca/baix-emporda/captain",
+    "conditions_url": "https://padelada.club/comarca/baix-emporda"
+  }
+}
