@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.padelada.app",
+      "sha256_cert_fingerprints": [
+        "91:39:1D:0A:EB:D6:88:34:02:46:33:91:A5:3A:5A:B3:27:A7:8D:B4:2C:34:E8:0A:94:CD:BF:18:64:14:92:ED",
+        "AF:64:67:EB:5C:D0:43:BF:7B:01:80:D6:4C:2B:65:26:C6:EF:23:8C:8C:4A:1C:BB:19:F0:02:EB:F0:B6:BB:89"
+      ]
+    }
+  }
+]

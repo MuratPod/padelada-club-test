@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["Y8A9BUQ6WN.com.padelada.app"],
+        "components": [{ "/": "/j/*" }, { "/": "/m/*" }, { "/": "/c/*" }, { "/": "/t/*" }]
+      }
+    ]
+  }
+}
