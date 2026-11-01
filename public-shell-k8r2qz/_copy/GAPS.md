@@ -25,3 +25,15 @@
 - 404.html, app-only/ (заглушка «это в приложении») на 5 языках, .well-known/ AASA+assetlinks (копия из padelada/site/root; в проде нужны в КОРНЕ .club).
 ## Осталось на утро
 - FAQ5 (Мурат). Вычитка ca/en/uk носителем. Hero/видео/фото/карта 42 — Design. Бэк #875 RPC. Хостинг без CF + снятие 301 — по «да».
+
+## 1.11 ~01:40 (Madrid) — PR #5 MERGED (00:34Z = 01:34 Madrid), Pages redeployed (pages-build-deployment success)
+- Smoke live https://muratpod.github.io/padelada-club-test/public-shell-k8r2qz/ : es(root)/ca/en/ru/uk index+comarca+captain 200; footer terms→padelada.com/terms/, privacy→/privacy/, текст по языку — PASS; hreflang es/ca/en/ru/uk+x-default=es — PASS; noindex — PASS; FAQ4 server time на всех 5 — PASS.
+- Мелочь: public-shell-k8r2qz/404.html ок (Términos/Privacidad). Но сайтовый 404 Pages (напр. для несуществующего /es/) показывает футер «Condiciones / Política de privacidad» — вероятно корневой 404.html репо, не наш шелл. ES живёт в корне шелла, /es/ не существует (by design).
+- Локальный COPY-ca-en-uk.build.py устарел (футер → padelada.com/); источник истины — main.
+- STOP до утра: FAQ5, #888, DNS, прод, CF, фото. Pending: Design, бэк (#875 RPC).
+
+## 1.11 ~02:45 (Madrid) — draft PR fix/root-404-footer-labels
+- Корневой 404.html репо: Condiciones→Términos, Política de privacidad→Privacidad (href не трогал).
+- Инвентарь шелла vs STRUCTURE: все страницы дерева есть (index ×5, comarca+captain ×5, app-only ×5, 404, .well-known AASA/assetlinks/security.txt); якоря club/comarcas/torneos/capitanes/fundador/faq/app на всех языках. Битых относительных ссылок нет.
+- COPY-ca-en-uk.build.py: футер → /terms/ и /privacy/ (был padelada.com/).
+- Без решений дальше не двигается: FAQ5 (Мурат), hero-видео/фото/карта 42 SVG (Design), лента турниров + RPC #875 + список 42 slug (бэк), хостинг без CF/301 (Мурат «да»).
